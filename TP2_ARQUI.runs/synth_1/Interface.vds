@@ -1,0 +1,244 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Oct  5 18:36:52 2022
+# Process ID: 588
+# Current directory: C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1
+# Command line: vivado.exe -log Interface.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Interface.tcl
+# Log file: C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.vds
+# Journal file: C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1\vivado.jou
+# Running On: DESKTOP-D1C48M2, OS: Windows, CPU Frequency: 3693 MHz, CPU Physical cores: 4, Host memory: 7474 MB
+#-----------------------------------------------------------
+source Interface.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 1294.062 ; gain = 23.848
+Command: read_checkpoint -auto_incremental -incremental C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/utils_1/imports/synth_1/Interface.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/utils_1/imports/synth_1/Interface.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top Interface -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10668
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Interface' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:31]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v:3]
+	Parameter BUS_SIZE bound to: 8 - type: integer 
+WARNING: [Synth 8-324] index 8 out of range [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v:30]
+WARNING: [Synth 8-324] index 8 out of range [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v:44]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v:3]
+WARNING: [Synth 8-7071] port 'o_led' of module 'ALU' is unconnected for instance 'alu' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:31]
+WARNING: [Synth 8-7023] instance 'alu' of module 'ALU' has 5 connections declared, but only 4 given [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'Interface' (0#1) [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v-23.4 with 1st driver pin 'GND' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v-23.4 with 2nd driver pin 'VCC' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v-23.4 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
+WARNING: [Synth 8-3848] Net o_operacion in module/entity Interface does not have driver. [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:28]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v-31.31 with 1st driver pin 'GND' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:31]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v-31.31 with 2nd driver pin 'VCC' [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:31]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v-31.31 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:31]
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[7] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[6] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[5] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[4] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[3] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[2] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[1] driven by constant 1
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[0] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[7] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[6] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[5] driven by constant 1
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[4] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[3] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[2] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[1] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[0] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input    8 Bit       Adders := 1     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   6 Input    8 Bit        Muxes := 1     
+	   9 Input    3 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[7] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[6] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[5] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[4] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[3] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[2] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[1] driven by constant 1
+WARNING: [Synth 8-3917] design Interface has port o_operando_1[0] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[7] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[6] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[5] driven by constant 1
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[4] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[3] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[2] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[1] driven by constant 0
+WARNING: [Synth 8-3917] design Interface has port o_operando_2[0] driven by constant 0
+WARNING: [Synth 8-7129] Port o_operacion[5] in module Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port o_operacion[4] in module Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port o_operacion[3] in module Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port o_operacion[2] in module Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port o_operacion[1] in module Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port o_operacion[0] in module Interface is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_clk in module Interface is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |OBUF  |    16|
+|2     |OBUFT |     6|
++------+------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    22|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 6 critical warnings and 46 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1294.062 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1294.062 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1294.062 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: fc553b68
+INFO: [Common 17-83] Releasing license: Synthesis
+18 Infos, 46 Warnings, 6 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1294.062 ; gain = 0.000
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Interface_utilization_synth.rpt -pb Interface_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Oct  5 18:37:56 2022...

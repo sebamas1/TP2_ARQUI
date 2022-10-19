@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Oct  5 18:36:52 2022
+# Process ID: 588
+# Current directory: C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1
+# Command line: vivado.exe -log Interface.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Interface.tcl
+# Log file: C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.vds
+# Journal file: C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.runs/synth_1\vivado.jou
+# Running On: DESKTOP-D1C48M2, OS: Windows, CPU Frequency: 3693 MHz, CPU Physical cores: 4, Host memory: 7474 MB
+#-----------------------------------------------------------
+source Interface.tcl -notrace
