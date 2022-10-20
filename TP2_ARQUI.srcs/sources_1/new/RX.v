@@ -58,6 +58,7 @@ module RX(
      always @(posedge i_tick)
      begin
         contador_ticks = contador_ticks + 1;
+        $display("acabo de aumentar los ticks: %d", contador_ticks);
      end
     
     always @*
@@ -69,14 +70,28 @@ module RX(
                          next_state = WAITING_STATE;
                      end
             WAITING_STATE:
-                if(i_rx == 0 && contador_ticks == 7)
+            
+            case(i_rx)
+                0:
                     begin
-                        next_state = BIT0_STATE;
-                        contador_ticks = 0;
-                    end else begin
+                        if(contador_ticks == 7)
+                            begin
+                                next_state = BIT0_STATE;
+                                contador_ticks = 0;
+                                $display("soy waiting1");                          
+                            end
+                    end
+                 1: 
+                    begin
                         next_state = IDDLE_STATE;
                         contador_ticks = 0;
                     end
+                  default:
+                    begin
+                        next_state = IDDLE_STATE;
+                        contador_ticks = 0;
+                    end
+               endcase
                 
             BIT0_STATE:
                 begin
@@ -152,19 +167,28 @@ module RX(
                     end
                 end
             STOP_STATE:
-                    if(i_rx == 1 && contador_ticks == 16)
+            case(i_rx)
+                1:
                     begin
-                        next_state = IDDLE_STATE;
-                        contador_ticks = 0;
-                    end else begin
+                        if(contador_ticks == 16)
+                            begin
+                                next_state = IDDLE_STATE;
+                                contador_ticks = 0;                     
+                            end
+                    end
+                 0: 
+                    begin
                         dato[7 : 0] = 8'b00000000;
                         next_state = IDDLE_STATE;
                         contador_ticks = 0;
-                    end         
-    
-                default: next_state = IDDLE_STATE;
-                endcase
-            
+                    end
+                  default:
+                    begin
+                        next_state = IDDLE_STATE;
+                        contador_ticks = 0;
+                    end
+               endcase
+            endcase
             end
         
     endmodule

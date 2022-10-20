@@ -29,15 +29,18 @@
             
             );
             
-            reg [11:0] contador_flancos = 11'b000000000000;
+            reg [15:0] contador_flancos = 12'b000000000000;
             reg [1 : 0] tick;
             
             assign o_tick = tick;
             
             always @(posedge i_clk)
             begin
-                if(contador_flancos == 11'b101101110010)
-                        tick = 1;
+                if(contador_flancos == 12'b101101110010)
+                       begin
+                            tick = 1;
+                            contador_flancos = 0;
+                       end
                             else begin
                         contador_flancos = contador_flancos + 1;
                         tick = 0;
