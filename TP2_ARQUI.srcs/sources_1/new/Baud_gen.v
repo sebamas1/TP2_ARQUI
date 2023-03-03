@@ -44,6 +44,8 @@
                             else begin
                         contador_flancos = contador_flancos + 1;
                         tick = 0;
+                        $display("acabo de aumentar el contador: %d", contador_flancos);
+
                      end
             
             end

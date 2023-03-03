@@ -39,7 +39,7 @@
             
             always @(i_operando_1, i_operando_2, i_operacion) 
        begin     
-            resultado[BUS_SIZE] <= 0;
+            resultado[BUS_SIZE] <= 0; ///????????
             
             case(operacion)
                 OP_ADD:

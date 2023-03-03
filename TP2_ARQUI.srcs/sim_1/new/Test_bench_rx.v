@@ -29,8 +29,8 @@ module Test_bench_rx;
                       
         Baud_gen baud_gen
     (
-            clk,
-            o_tick
+            .i_clk(clk),
+            .o_tick(o_tick)
     );
     RX rx(
            .i_clk(clk),   
