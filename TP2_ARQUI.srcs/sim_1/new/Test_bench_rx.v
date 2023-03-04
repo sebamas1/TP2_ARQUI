@@ -23,7 +23,7 @@
 module Test_bench_rx;
         
     reg clk = 1'b0;
-    reg bit_envio = 1'b0;
+    reg bit_envio = 1'b1;
     reg reset = 1'b0;
     wire o_tick;
                       
@@ -45,5 +45,32 @@ module Test_bench_rx;
     always begin
         #1
         clk = ~clk;
+    end
+    
+    always begin
+        #43950
+        bit_envio = 1'b0; 
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b1;
+        #43950
+        bit_envio = 1'b0;
+        #43950
+        bit_envio = 1'b1;
+
+
+        
+       // $display("queseyo %d", bit_envio);
     end
 endmodule
