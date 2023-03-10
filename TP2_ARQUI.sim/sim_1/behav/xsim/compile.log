@@ -2,5 +2,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.
 INFO: [VRFC 10-311] analyzing module Baud_gen
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RX
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TX
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sim_1/new/Test_bench_rx.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Test_bench_rx

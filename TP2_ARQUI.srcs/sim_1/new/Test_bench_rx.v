@@ -26,18 +26,25 @@ module Test_bench_rx;
     reg bit_envio = 1'b1;
     reg reset = 1'b0;
     wire o_tick;
+    wire o_tx;
                       
         Baud_gen baud_gen
     (
             .i_clk(clk),
             .o_tick(o_tick)
     );
+    TX tx( 
+           .i_tick(o_tick),
+           .i_reset(reset),
+           .o_tx(o_tx)              
+    );
     RX rx(
            .i_clk(clk),   
            .i_tick(o_tick),
-           .i_rx(bit_envio),
+           .i_rx(o_tx),
            .i_reset(reset)              
     );
+    
     initial begin
         
     end
@@ -45,32 +52,5 @@ module Test_bench_rx;
     always begin
         #1
         clk = ~clk;
-    end
-    
-    always begin
-        #43950
-        bit_envio = 1'b0; 
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b1;
-        #43950
-        bit_envio = 1'b0;
-        #43950
-        bit_envio = 1'b1;
-
-
-        
-       // $display("queseyo %d", bit_envio);
     end
 endmodule

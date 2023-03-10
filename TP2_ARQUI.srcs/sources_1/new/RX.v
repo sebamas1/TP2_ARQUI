@@ -45,7 +45,7 @@ module RX(
     reg [3 : 0] present_state = IDDLE_STATE;
     reg [3 : 0] next_state = IDDLE_STATE;
     reg [7 : 0] dato;
-    reg [4 : 0] contador_ticks = 4'b0000;
+    reg [3 : 0] contador_ticks = 4'b0000;
     
     always @(posedge i_clk) //hay que ver que venga desde un alto y empiece con un flanco descendente
         begin
@@ -78,8 +78,7 @@ module RX(
                             if(contador_ticks == 7)
                                 begin
                                     next_state = BIT0_STATE;
-                                    contador_ticks = 0;
-                                    $display("soy waiting1");                          
+                                    contador_ticks = 0;                        
                                 end
                         end
                      1: 
@@ -96,18 +95,17 @@ module RX(
                 
             BIT0_STATE:
                 begin
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = BIT1_STATE;
                         dato[0] = i_rx;
                         contador_ticks = 0;
-                        $display("holasssssssssssssssssssssssssssss0");
                     end
                 end
             
             BIT1_STATE:
                 begin
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = BIT2_STATE;
                         dato[1] = i_rx;
@@ -116,7 +114,7 @@ module RX(
                 end
             BIT2_STATE:
                 begin
-                    if( contador_ticks == 16)
+                    if( contador_ticks == 15)
                     begin
                         next_state = BIT3_STATE;
                         dato[2] = i_rx;
@@ -125,7 +123,7 @@ module RX(
                 end
             BIT3_STATE:
                 begin 
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = BIT4_STATE;
                         dato[3] = i_rx;
@@ -134,7 +132,7 @@ module RX(
                 end
             BIT4_STATE:
                 begin
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = BIT5_STATE;
                         dato[4] = i_rx;
@@ -143,7 +141,7 @@ module RX(
                 end
             BIT5_STATE:
                 begin
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = BIT6_STATE;
                         dato[5] = i_rx;
@@ -152,7 +150,7 @@ module RX(
                 end
             BIT6_STATE:
                 begin
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = BIT7_STATE;
                         dato[6] = i_rx;
@@ -161,19 +159,18 @@ module RX(
                 end
             BIT7_STATE:
                 begin
-                    if(contador_ticks == 16)
+                    if(contador_ticks == 15)
                     begin
                         next_state = STOP_STATE;
                         dato[7] = i_rx;
                         contador_ticks = 0;
-                        $display("holasssssssssssssssssssssssssssss7");
                     end
                 end
             STOP_STATE:
             case(i_rx)
                 1:
                     begin
-                        if(contador_ticks == 16)
+                        if(contador_ticks == 15)
                             begin
                                 next_state = IDDLE_STATE;
                                 contador_ticks = 0;    
@@ -185,7 +182,6 @@ module RX(
                         dato[7 : 0] = 8'b00000000;
                         next_state = IDDLE_STATE;
                         contador_ticks = 0;
-                        $display("ups");
                     end
                   default:
                     begin
