@@ -3,9 +3,9 @@
 Oct 14 2022
 05:20:55
 C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,,,,,,,
-C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sim_1/new/Test_bench_rx.v,1678488885,verilog,,,,Test_bench_rx,,,,,,,,
-C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v,1665007633,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v,,ALU,,,,,,,,
-C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v,1677884711,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v,,Baud_gen,,,,,,,,
-C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v,1665013216,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v,,Interface,,,,,,,,
-C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v,1678489397,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v,,RX,,,,,,,,
-C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v,1678489487,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sim_1/new/Test_bench_rx.v,,TX,,,,,,,,
+C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sim_1/new/Test_bench_rx.v,1678924341,verilog,,,,Test_bench_rx,,,,,,,,
+C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v,1677878785,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v,,ALU,,,,,,,,
+C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v,1677884711,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v,,Baud_gen,,,,,,,,
+C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v,1678921810,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v,,Interface,,,,,,,,
+C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v,1678923390,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v,,RX,,,,,,,,
+C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v,1678924193,verilog,,C:/Users/sebam/TP2_ARQUI/TP2_ARQUI.srcs/sim_1/new/Test_bench_rx.v,,TX,,,,,,,,

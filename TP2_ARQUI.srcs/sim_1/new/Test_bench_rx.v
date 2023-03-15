@@ -27,6 +27,8 @@ module Test_bench_rx;
     reg reset = 1'b0;
     wire o_tick;
     wire o_tx;
+    wire [7 : 0] o_dato_recibido;
+    wire recibido;
                       
         Baud_gen baud_gen
     (
@@ -38,14 +40,92 @@ module Test_bench_rx;
            .i_reset(reset),
            .o_tx(o_tx)              
     );
+    
     RX rx(
            .i_clk(clk),   
            .i_tick(o_tick),
            .i_rx(o_tx),
-           .i_reset(reset)              
+           .i_reset(reset),
+           .o_dato_recibido(dato_recibido),
+           .o_recibido(recibido)              
     );
     
-    initial begin
+    Interface interface 
+    (
+     .i_entrada_rx(dato_recibido),
+     .i_recibido(recibido),
+     .i_reset(reset),
+     .i_clk(clk)   
+    );
+    
+    
+    always begin
+    
+    #45415
+    bit_envio = 0;
+    #45415
+    bit_envio = 1;
+    #45415
+    bit_envio = 1;
+    #45415
+    bit_envio = 0;
+    #45415
+    bit_envio = 0;
+    #45415
+    bit_envio = 0;
+    #45415
+    bit_envio = 1;
+    #45415
+    bit_envio = 0;
+    #45415
+    bit_envio = 0;
+    #45415
+    bit_envio = 1;
+    //35
+    
+    #45415
+    bit_envio = 0;
+    #43950
+    bit_envio = 1;
+    #43950
+    bit_envio = 1;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 1;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 1;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 1;
+    //83
+    
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 1;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 0;
+    #43950
+    bit_envio = 1;
+    
         
     end
                     

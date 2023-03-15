@@ -26,7 +26,7 @@
         output o_tx
         );
         
-        reg [9 : 0] dato = 10'b1111111110;
+        reg [9 : 0] dato = 10'b1010100000;
         reg [3 : 0] contador_ticks = 4'b0000;
         reg [3 : 0] reg_index = 0;
         

@@ -25,8 +25,9 @@ module RX(
     input i_clk,
     input i_tick,
     input i_rx,
-    input i_reset
-
+    input i_reset,
+    output [7 : 0] o_dato_recibido,
+    output o_recibido
     );
           
     localparam IDDLE_STATE = 4'b0000;
@@ -40,12 +41,15 @@ module RX(
     localparam BIT6_STATE = 4'b1010;
     localparam BIT7_STATE = 4'b1011;
     localparam STOP_STATE = 4'b1100;
-    localparam SAVE_STATE = 4'b1101;
     
     reg [3 : 0] present_state = IDDLE_STATE;
     reg [3 : 0] next_state = IDDLE_STATE;
     reg [7 : 0] dato;
     reg [3 : 0] contador_ticks = 4'b0000;
+    reg recibido = 1'b0;
+    
+    assign dato_recibido = dato;
+    assign o_recibido = recibido;
     
     always @(posedge i_clk) //hay que ver que venga desde un alto y empiece con un flanco descendente
         begin
@@ -66,10 +70,14 @@ module RX(
         begin
         case(present_state)
             IDDLE_STATE:
+            begin
                 if(i_rx == 0)
                      begin
                          next_state = WAITING_STATE;
+                         
                      end
+                recibido = 1'b0;
+            end
             WAITING_STATE:
             
                 case(i_rx)
@@ -100,6 +108,7 @@ module RX(
                         next_state = BIT1_STATE;
                         dato[0] = i_rx;
                         contador_ticks = 0;
+                        $display("00000000000"); 
                     end
                 end
             
@@ -110,6 +119,7 @@ module RX(
                         next_state = BIT2_STATE;
                         dato[1] = i_rx;
                         contador_ticks = 0;
+                        $display("1111111111");
                     end
                 end
             BIT2_STATE:
@@ -119,6 +129,7 @@ module RX(
                         next_state = BIT3_STATE;
                         dato[2] = i_rx;
                         contador_ticks = 0;
+                        $display("22222222222"); 
                     end
                 end
             BIT3_STATE:
@@ -128,6 +139,7 @@ module RX(
                         next_state = BIT4_STATE;
                         dato[3] = i_rx;
                         contador_ticks = 0;
+                        $display("3333333333"); 
                     end
                 end
             BIT4_STATE:
@@ -137,6 +149,7 @@ module RX(
                         next_state = BIT5_STATE;
                         dato[4] = i_rx;
                         contador_ticks = 0;
+                        $display("4444444444444"); 
                     end
                 end
             BIT5_STATE:
@@ -146,6 +159,7 @@ module RX(
                         next_state = BIT6_STATE;
                         dato[5] = i_rx;
                         contador_ticks = 0;
+                        $display("555555555555"); 
                     end
                 end
             BIT6_STATE:
@@ -155,6 +169,7 @@ module RX(
                         next_state = BIT7_STATE;
                         dato[6] = i_rx;
                         contador_ticks = 0;
+                        $display("66666666666"); 
                     end
                 end
             BIT7_STATE:
@@ -164,6 +179,7 @@ module RX(
                         next_state = STOP_STATE;
                         dato[7] = i_rx;
                         contador_ticks = 0;
+                        $display("777777777777777"); 
                     end
                 end
             STOP_STATE:
@@ -174,7 +190,8 @@ module RX(
                             begin
                                 next_state = IDDLE_STATE;
                                 contador_ticks = 0;    
-                                $display("exitoo: %d", dato);                 
+                                $display("exitoo: %d", dato); 
+                                recibido = 1'b1;                
                             end
                     end
                  0: 
