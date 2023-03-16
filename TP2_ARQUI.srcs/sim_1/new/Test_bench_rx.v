@@ -28,7 +28,7 @@ module Test_bench_rx;
     wire o_tick;
     wire o_tx;
     wire [7 : 0] o_dato_recibido;
-    wire recibido;
+    wire o_recibido;
                       
         Baud_gen baud_gen
     (
@@ -46,89 +46,20 @@ module Test_bench_rx;
            .i_tick(o_tick),
            .i_rx(o_tx),
            .i_reset(reset),
-           .o_dato_recibido(dato_recibido),
-           .o_recibido(recibido)              
+           .o_dato_recibido(o_dato_recibido),
+           .o_recibido(o_recibido)              
     );
     
-    Interface interface 
-    (
-     .i_entrada_rx(dato_recibido),
-     .i_recibido(recibido),
+    Interface interface(
+     .o_operando_1(),
+     .o_operando_2(),
+     .o_operacion(),
+     .i_entrada_rx(o_dato_recibido),
+     .i_recibido(o_recibido),
      .i_reset(reset),
      .i_clk(clk)   
     );
-    
-    
-    always begin
-    
-    #45415
-    bit_envio = 0;
-    #45415
-    bit_envio = 1;
-    #45415
-    bit_envio = 1;
-    #45415
-    bit_envio = 0;
-    #45415
-    bit_envio = 0;
-    #45415
-    bit_envio = 0;
-    #45415
-    bit_envio = 1;
-    #45415
-    bit_envio = 0;
-    #45415
-    bit_envio = 0;
-    #45415
-    bit_envio = 1;
-    //35
-    
-    #45415
-    bit_envio = 0;
-    #43950
-    bit_envio = 1;
-    #43950
-    bit_envio = 1;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 1;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 1;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 1;
-    //83
-    
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 1;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
-    bit_envio = 1;
-    
-        
-    end
-                    
+               
     always begin
         #1
         clk = ~clk;
