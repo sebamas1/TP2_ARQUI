@@ -22,7 +22,7 @@
 
 // clock de 450MGz y se hace con un baud rate de 9600 Baudios, seran 2930 
         
-        module Baud_gen(
+        module Baud_gen (
         
             input i_clk,
             output o_tick
@@ -36,16 +36,16 @@
             
             always @(posedge i_clk)
             begin
-                if(contador_flancos == 12'b101101110010)
-                       begin
-                            tick = 1;
-                            contador_flancos = 0;
-                       end
-                            else begin
-                        contador_flancos = contador_flancos + 1;
-                        tick = 0;
-
-                     end
+                if(contador_flancos == 12'b001010001011) //651
+                begin
+                    tick = 1;
+                    contador_flancos = 0;
+                end
+                else 
+                begin
+                    contador_flancos = contador_flancos + 1;
+                    tick = 0;
+                end
             
             end
         endmodule

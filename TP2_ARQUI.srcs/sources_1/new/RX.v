@@ -108,7 +108,7 @@ module RX(
                         next_state = BIT1_STATE;
                         dato[0] = i_rx;
                         contador_ticks = 0;
-                        $display("00000000000"); 
+                        $display("00000000000 i_rx: %d", i_rx); 
                     end
                 end
             
@@ -119,7 +119,7 @@ module RX(
                         next_state = BIT2_STATE;
                         dato[1] = i_rx;
                         contador_ticks = 0;
-                        $display("1111111111");
+                        $display("1111111111 i_rx: %d", i_rx);
                     end
                 end
             BIT2_STATE:
@@ -129,7 +129,7 @@ module RX(
                         next_state = BIT3_STATE;
                         dato[2] = i_rx;
                         contador_ticks = 0;
-                        $display("22222222222"); 
+                        $display("22222222222 i_rx: %d", i_rx); 
                     end
                 end
             BIT3_STATE:
@@ -139,7 +139,7 @@ module RX(
                         next_state = BIT4_STATE;
                         dato[3] = i_rx;
                         contador_ticks = 0;
-                        $display("3333333333"); 
+                        $display("3333333333 i_rx: %d", i_rx); 
                     end
                 end
             BIT4_STATE:
@@ -149,7 +149,7 @@ module RX(
                         next_state = BIT5_STATE;
                         dato[4] = i_rx;
                         contador_ticks = 0;
-                        $display("4444444444444"); 
+                        $display("4444444444444 i_rx: %d", i_rx); 
                     end
                 end
             BIT5_STATE:
@@ -159,7 +159,7 @@ module RX(
                         next_state = BIT6_STATE;
                         dato[5] = i_rx;
                         contador_ticks = 0;
-                        $display("555555555555"); 
+                        $display("555555555555 i_rx: %d", i_rx); 
                     end
                 end
             BIT6_STATE:
@@ -169,7 +169,7 @@ module RX(
                         next_state = BIT7_STATE;
                         dato[6] = i_rx;
                         contador_ticks = 0;
-                        $display("66666666666"); 
+                        $display("66666666666 i_rx: %d", i_rx); 
                     end
                 end
             BIT7_STATE:
@@ -179,7 +179,7 @@ module RX(
                         next_state = STOP_STATE;
                         dato[7] = i_rx;
                         contador_ticks = 0;
-                        $display("777777777777777"); 
+                        $display("777777777777777 i_rx: %d", i_rx); 
                     end
                 end
             STOP_STATE:
@@ -196,9 +196,14 @@ module RX(
                     end
                  0: 
                     begin
-                        dato[7 : 0] = 8'b00000000;
-                        next_state = IDDLE_STATE;
-                        contador_ticks = 0;
+                         if(contador_ticks == 15)
+                         begin
+                             $display("es ceroooo el i_rx: %d", i_rx); 
+                            dato[7 : 0] = 8'b00000000;
+                            next_state = IDDLE_STATE;
+                            contador_ticks = 0;
+                         end
+                       
                     end
                   default:
                     begin

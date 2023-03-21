@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -21,7 +21,10 @@
 
     
 module Test_bench_rx;
-        
+    // 43950 // 45415 // 46880
+    localparam TIEMPO = 45415; 
+    
+    
     reg clk = 1'b0;
     reg bit_envio = 1'b1;
     reg reset = 1'b0;
@@ -44,7 +47,7 @@ module Test_bench_rx;
     RX rx(
            .i_clk(clk),   
            .i_tick(o_tick),
-           .i_rx(o_tx),
+           .i_rx(bit_envio),
            .i_reset(reset),
            .o_dato_recibido(dato_recibido),
            .o_recibido(recibido)              
@@ -59,71 +62,72 @@ module Test_bench_rx;
     );
     
     
-    always begin
+    initial begin
     
-    #45415
+    //0010 0011
+    #TIEMPO
     bit_envio = 0;
-    #45415
+    #TIEMPO
     bit_envio = 1;
-    #45415
+    #TIEMPO
     bit_envio = 1;
-    #45415
+    #TIEMPO
     bit_envio = 0;
-    #45415
+    #TIEMPO
     bit_envio = 0;
-    #45415
+    #TIEMPO
     bit_envio = 0;
-    #45415
+    #TIEMPO
     bit_envio = 1;
-    #45415
+    #TIEMPO
     bit_envio = 0;
-    #45415
+    #TIEMPO
     bit_envio = 0;
-    #45415
+    #TIEMPO
     bit_envio = 1;
     //35
     
-    #45415
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 1;
-    #43950
+    #TIEMPO
     bit_envio = 1;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 1;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 1;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 1;
     //83
     
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
+    bit_envio = 0;
+    #TIEMPO
     bit_envio = 1;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 0;
-    #43950
-    bit_envio = 0;
-    #43950
+    #TIEMPO
     bit_envio = 1;
     
         

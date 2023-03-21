@@ -26,7 +26,9 @@
         output o_tx
         );
         
-        reg [9 : 0] dato = 10'b1010100000;
+        //reg [9 : 0] dato = 10'b1100011000;    //140
+        // reg [9 : 0] dato = 10'b1101111100;      //190
+        reg [9 : 0] dato = 10'b1001111100;      //62
         reg [3 : 0] contador_ticks = 4'b0000;
         reg [3 : 0] reg_index = 0;
         
@@ -41,15 +43,16 @@
          begin
          if (contador_ticks == 15)
              begin
-             contador_ticks <= 0;
-             if(reg_index == 9)
-             begin
-             reg_index = 0;
-             end
-             else begin
-             reg_index <= reg_index + 1;
-             end
-             end
+                if(reg_index == 9)
+                    begin
+                        reg_index = 0;
+                    end
+                else 
+                    begin
+                        reg_index = reg_index + 1;
+                    end
+                contador_ticks = 0;
+            end
          end
         
     endmodule
