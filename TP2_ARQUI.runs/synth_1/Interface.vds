@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Mar 17 21:12:51 2023
-# Process ID: 12208
+# Start of session at: Tue Mar 28 20:33:50 2023
+# Process ID: 6836
 # Current directory: C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/synth_1
 # Command line: vivado.exe -log Interface.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Interface.tcl
 # Log file: C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.vds
@@ -11,7 +11,7 @@
 # Running On: DESKTOP-829O8AH, OS: Windows, CPU Frequency: 2904 MHz, CPU Physical cores: 2, Host memory: 12797 MB
 #-----------------------------------------------------------
 source Interface.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 394.750 ; gain = 73.234
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 394.340 ; gain = 75.305
 Command: read_checkpoint -auto_incremental -incremental C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/utils_1/imports/synth_1/Interface.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/utils_1/imports/synth_1/Interface.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -24,45 +24,34 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 5768
+INFO: [Synth 8-7075] Helper process launched with PID 14288
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
-INFO: [Synth 8-11241] undeclared symbol 'dato_recibido', assumed default net type 'wire' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:51]
-INFO: [Synth 8-11241] undeclared symbol 'o_tick', assumed default net type 'wire' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:38]
+INFO: [Synth 8-11241] undeclared symbol 'o_tick', assumed default net type 'wire' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:44]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1206.176 ; gain = 408.656
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1206.367 ; gain = 409.680
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'Interface' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Baud_gen' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'Baud_gen' (0#1) [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v:25]
 INFO: [Synth 8-6157] synthesizing module 'RX' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:23]
-INFO: [Synth 8-226] default block is never used [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:83]
-INFO: [Synth 8-226] default block is never used [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:186]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:71]
+INFO: [Synth 8-226] default block is never used [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:77]
+INFO: [Synth 8-226] default block is never used [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:180]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:65]
 INFO: [Synth 8-6155] done synthesizing module 'RX' (0#1) [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:23]
-WARNING: [Synth 8-6104] Input port 'i_entrada_rx' has an internal driver [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:46]
 INFO: [Synth 8-6155] done synthesizing module 'Interface' (0#1) [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
-WARNING: [Synth 8-3848] Net o_dato_recibido in module/entity RX does not have driver. [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:29]
-WARNING: [Synth 8-7129] Port o_dato_recibido[7] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[6] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[5] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[4] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[3] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[2] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[1] in module RX is either unconnected or has no load
-WARNING: [Synth 8-7129] Port o_dato_recibido[0] in module RX is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1295.332 ; gain = 497.812
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1296.480 ; gain = 499.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1295.332 ; gain = 497.812
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1296.480 ; gain = 499.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1295.332 ; gain = 497.812
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1296.480 ; gain = 499.793
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1295.332 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1296.480 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -73,54 +62,32 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/Interface_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1341.426 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1371.383 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1341.426 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1371.383 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'present_state_reg' in module 'RX'
-WARNING: [Synth 8-327] inferring latch for variable 'recibido_reg' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:52]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:76]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:76]
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-             IDDLE_STATE |                      00000000001 |                             0000
-           WAITING_STATE |                      00000000010 |                             0001
-              BIT0_STATE |                      00000000100 |                             0100
-              BIT1_STATE |                      00000001000 |                             0101
-              BIT2_STATE |                      00000010000 |                             0110
-              BIT3_STATE |                      00000100000 |                             0111
-              BIT4_STATE |                      00001000000 |                             1000
-              BIT5_STATE |                      00010000000 |                             1001
-              BIT6_STATE |                      00100000000 |                             1010
-              BIT7_STATE |                      01000000000 |                             1011
-              STOP_STATE |                      10000000000 |                             1100
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'present_state_reg' using encoding 'one-hot' in module 'RX'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:76]
-WARNING: [Synth 8-327] inferring latch for variable 'contador_ticks_reg' [C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:86]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -131,14 +98,19 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit       Adders := 1     
 +---Registers : 
 	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	  11 Input   11 Bit        Muxes := 1     
-	   2 Input   11 Bit        Muxes := 1     
-	  11 Input    4 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	  12 Input    8 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 27    
-	  11 Input    1 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 3     
+	  12 Input    1 Bit        Muxes := 1     
+	  11 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -155,61 +127,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port i_entrada_rx[7] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[6] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[5] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[4] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[3] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[2] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[1] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_entrada_rx[0] in module Interface is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (rx/recibido_reg) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[10]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[9]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[8]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[7]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[6]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[5]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[4]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[3]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[2]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[1]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_present_state_reg[0]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[10]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[9]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[8]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[7]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[6]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[5]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[4]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[3]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[2]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[1]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/FSM_onehot_next_state_reg[0]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/contador_ticks_reg[3]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/contador_ticks_reg[2]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/contador_ticks_reg[1]) is unused and will be removed from module Interface.
-WARNING: [Synth 8-3332] Sequential element (rx/contador_ticks_reg[0]) is unused and will be removed from module Interface.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -227,37 +164,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -270,29 +207,42 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+-+-----+------+
-| |Cell |Count |
-+-+-----+------+
-+-+-----+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     4|
+|3     |LUT1   |     1|
+|4     |LUT2   |     5|
+|5     |LUT3   |     1|
+|6     |LUT4   |     5|
+|7     |LUT5   |     3|
+|8     |LUT6   |    17|
+|9     |FDRE   |    37|
+|10    |IBUF   |     3|
+|11    |OBUF   |     8|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 1371.383 ; gain = 574.695
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 41 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1341.426 ; gain = 497.812
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1341.426 ; gain = 543.906
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1371.383 ; gain = 499.793
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1371.383 ; gain = 574.695
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1341.426 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1371.383 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1341.426 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1371.383 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 8465a284
+Synth Design complete, checksum: f7abd8e9
 INFO: [Common 17-83] Releasing license: Synthesis
-34 Infos, 51 Warnings, 0 Critical Warnings and 0 Errors encountered.
+33 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1341.426 ; gain = 921.824
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1371.383 ; gain = 952.176
 INFO: [Common 17-1381] The checkpoint 'C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Interface_utilization_synth.rpt -pb Interface_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Mar 17 21:13:44 2023...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 28 20:34:43 2023...

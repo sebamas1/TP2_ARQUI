@@ -25,12 +25,18 @@
             // output [7 : 0] o_operando_1,
             // output [7 : 0] o_operando_2,
             // output [5 : 0] o_operacion,
-            input  [7 : 0] i_entrada_rx,
-            input bit_envio,
+        //     input  [7 : 0] i_entrada_rx,
+            input rx,//UART RX
             input i_reset,
-            input i_clk
+            input i_clk,
+            output [7:0] salida
+        //     output o_bit_envio
             );
+            wire [7 : 0] salida_local;
             wire i_recibido;
+            wire [7:0] rec_data;
+            //assign o_bit_envio = bit_envio;
+            
             
              Baud_gen baud_gen
                 (
@@ -38,12 +44,12 @@
                         .o_tick(o_tick)
                 );
     
-                RX rx(
+                RX receptor(
                        .i_clk(i_clk),   
                        .i_tick(o_tick),
-                       .i_rx(bit_envio),
+                       .i_rx(rx),
                        .i_reset(i_reset),
-                       .o_dato_recibido(i_entrada_rx),
+                       .o_dato_recibido(rec_data),
                        .o_recibido(i_recibido)              
                 );
             
@@ -70,7 +76,10 @@
         // reg [3 : 0] present_state = OPERANDO1_STATE;
         // reg [3 : 0] next_state = OPERANDO1_STATE;
         
-        
+        // always @(*)
+        // begin
+        //         $display("bit_envio", o_bit_envio);
+        // end
         
         // always @(posedge i_clk)
         // begin
@@ -110,5 +119,5 @@
         //  endcase
         
         // end        
-        
-        endmodule
+        assign salida = rec_data;
+endmodule
