@@ -25,19 +25,22 @@
             // output [7 : 0] o_operando_1,
             // output [7 : 0] o_operando_2,
             // output [5 : 0] o_operacion,
-        //     input  [7 : 0] i_entrada_rx,
             input rx,//UART RX
             input i_reset,
             input i_clk,
-            output [7:0] salida
-        //     output o_bit_envio
+            output [7:0] salida,
+            output [7:0] salida_operadores
+        //     output [2: 0] estado
             );
-            wire [7 : 0] salida_local;
+
             wire i_recibido;
             wire [7:0] rec_data;
-            //assign o_bit_envio = bit_envio;
+            wire [7 : 0] o_operando_1;
+            wire [7 : 0] o_operando_2;
+            wire [5 : 0] o_operacion;
+            wire [7:0] resultado;
             
-            
+
              Baud_gen baud_gen
                 (
                         .i_clk(i_clk),
@@ -53,71 +56,78 @@
                        .o_recibido(i_recibido)              
                 );
             
-        //         ALU #( .BUS_SIZE(8) ) alu
-        // (
-        //         .i_operando_1(o_operando_1),
-        //         .i_operando_2(o_operando_2),
-        //         .i_operacion(o_operacion)
-        // );
-        
-        // reg [7 : 0] operando_1;
-        // reg [7 : 0] operando_2;
-        // reg [7 : 0] operacion;
-               
-        // assign o_operando_1 = operando_1;
-        // assign o_operando_2 = operando_2;
-        // assign o_operacion = operacion;
+                ALU #( .BUS_SIZE(8) ) alu
+        (
+                .i_operando_1(o_operando_1),
+                .i_operando_2(o_operando_2),
+                .i_operacion(o_operacion),
+                .o_led(resultado)
+        );
         
         
-        // localparam OPERANDO1_STATE = 2'b00;
-        // localparam OPERANDO2_STATE = 2'b01;
-        // localparam OPERACION_STATE = 2'b10;
+        reg [7 : 0] operando_1;
+        reg [7 : 0] operando_2;
+        reg [7 : 0] operacion;
+        // reg [2:0] estado_o;
+        reg [7:0] salida_op;
+        
+        
+        localparam OPERANDO1_STATE = 2'b00;
+        localparam OPERANDO2_STATE = 2'b01;
+        localparam OPERACION_STATE = 2'b10;
 
-        // reg [3 : 0] present_state = OPERANDO1_STATE;
-        // reg [3 : 0] next_state = OPERANDO1_STATE;
+        reg [3 : 0] present_state = OPERANDO1_STATE;
+        reg [3 : 0] next_state = OPERANDO1_STATE;
         
-        // always @(*)
-        // begin
-        //         $display("bit_envio", o_bit_envio);
-        // end
+          
+        always @(posedge i_clk)
+        begin
+            if(i_reset == 1)
+            begin
+                present_state <= OPERANDO1_STATE;
+                operando_1 = 8'bxxxxxxxx;
+                operando_2 = 8'bxxxxxxxx;
+                operacion = 6'bxxxxxx;
+                end
+            else 
+                present_state <= next_state;
+        end
         
-        // always @(posedge i_clk)
-        // begin
-        //     if(i_reset == 1)
-        //     begin
-        //         present_state <= OPERANDO1_STATE;
-        //         operando_1 = 8'bxxxxxxxx;
-        //         operando_2 = 8'bxxxxxxxx;
-        //         operacion = 6'bxxxxxx;
-        //         end
-        //     else 
-        //         present_state <= next_state;
-        // end
-        
-        // always @(posedge i_recibido)
-        // begin
-            
-        //  case(present_state)
-        //  OPERANDO1_STATE:
-        //  begin
-        //  next_state = OPERANDO2_STATE;
-        //  operando_1 = i_entrada_rx;
-        //  end
-         
-        //  OPERANDO2_STATE:
-        //  begin
-        //  operando_2 = i_entrada_rx;
-        //  next_state = OPERACION_STATE;
-        //  end
-         
-        //  OPERACION_STATE:
-        //  begin
-        //  operacion = i_entrada_rx;
-        //  next_state = OPERANDO1_STATE;
-        //  end
-         
-        //  endcase
-        
-        // end        
-        assign salida = rec_data;
+        always @(posedge i_recibido)
+                begin
+                
+                        case(present_state)
+                                OPERANDO1_STATE:
+                                begin
+                                        // estado_o = 3'b001;
+                                        next_state = OPERANDO2_STATE;
+                                        operando_1 = rec_data;
+                                        salida_op = rec_data;
+                                end
+                                
+                                OPERANDO2_STATE:
+                                begin
+                                        // estado_o = 3'b010;
+                                        operando_2 = rec_data;
+                                        next_state = OPERACION_STATE;
+                                        salida_op = rec_data;
+                                end
+                                
+                                OPERACION_STATE:
+                                begin
+                                        // estado_o = 3'b100;
+                                        operacion = rec_data;
+                                        next_state = OPERANDO1_STATE;
+                                        salida_op = rec_data;
+                                end
+                        
+                        endcase
+                
+                end        
+        assign salida = resultado;
+        assign o_operando_1 = operando_1;
+        assign o_operando_2 = operando_2;
+        assign o_operacion = operacion;
+        // assign estado = estado_o;
+        assign salida_operadores = salida_op;
 endmodule
