@@ -34,11 +34,11 @@
             );
 
             wire i_recibido;
-            wire [7:0] rec_data;
+            wire [7 : 0] rec_data;
             wire [7 : 0] o_operando_1;
             wire [7 : 0] o_operando_2;
-            wire [5 : 0] o_operacion;
-            wire [7:0] resultado;
+            wire [7 : 0] o_operacion;
+            wire [7 : 0] resultado;
             
 
              Baud_gen baud_gen
@@ -68,8 +68,7 @@
         reg [7 : 0] operando_1;
         reg [7 : 0] operando_2;
         reg [7 : 0] operacion;
-        // reg [2:0] estado_o;
-        reg [7:0] salida_op;
+        reg [7 : 0] salida_op;
         
         
         localparam OPERANDO1_STATE = 2'b00;
@@ -78,6 +77,12 @@
 
         reg [3 : 0] present_state = OPERANDO1_STATE;
         reg [3 : 0] next_state = OPERANDO1_STATE;
+
+        assign salida = resultado;
+        assign o_operando_1 = operando_1;
+        assign o_operando_2 = operando_2;
+        assign o_operacion = operacion;
+        assign salida_operadores = salida_op;
         
           
         always @(posedge i_clk)
@@ -87,7 +92,7 @@
                 present_state <= OPERANDO1_STATE;
                 operando_1 = 8'bxxxxxxxx;
                 operando_2 = 8'bxxxxxxxx;
-                operacion = 6'bxxxxxx;
+                operacion = 8'bxxxxxxxx;
                 end
             else 
                 present_state <= next_state;
@@ -99,7 +104,6 @@
                         case(present_state)
                                 OPERANDO1_STATE:
                                 begin
-                                        // estado_o = 3'b001;
                                         next_state = OPERANDO2_STATE;
                                         operando_1 = rec_data;
                                         salida_op = rec_data;
@@ -107,7 +111,6 @@
                                 
                                 OPERANDO2_STATE:
                                 begin
-                                        // estado_o = 3'b010;
                                         operando_2 = rec_data;
                                         next_state = OPERACION_STATE;
                                         salida_op = rec_data;
@@ -115,7 +118,6 @@
                                 
                                 OPERACION_STATE:
                                 begin
-                                        // estado_o = 3'b100;
                                         operacion = rec_data;
                                         next_state = OPERANDO1_STATE;
                                         salida_op = rec_data;
@@ -124,10 +126,5 @@
                         endcase
                 
                 end        
-        assign salida = resultado;
-        assign o_operando_1 = operando_1;
-        assign o_operando_2 = operando_2;
-        assign o_operacion = operacion;
-        // assign estado = estado_o;
-        assign salida_operadores = salida_op;
+
 endmodule

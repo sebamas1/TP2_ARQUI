@@ -6,23 +6,23 @@
         (
             input [BUS_SIZE - 1 :0] i_operando_1,
             input [BUS_SIZE - 1 :0] i_operando_2,
-            input [5 : 0] i_operacion,
+            input [BUS_SIZE - 1 : 0] i_operacion,
             output [BUS_SIZE + 1 :0] o_led
             
         );
         
-        localparam OP_ADD = 6'b100000;
-        localparam OP_SUB = 6'b100010;
-        localparam OP_AND = 6'b100100;
-        localparam OP_OR = 6'b100101;
-        localparam OP_XOR = 6'b100110;
-        localparam OP_SRA = 6'b000011;
-        localparam OP_SRL = 6'b000010;
-        localparam OP_NOR = 6'b100111;
+        localparam OP_ADD = 8'b01010011;//S
+        localparam OP_SUB = 8'b01010010;//R
+        localparam OP_AND = 8'b01000001;//A
+        localparam OP_OR =  8'b01001111;//O
+        localparam OP_XOR = 8'b01011000;//X
+        localparam OP_SRA = 8'b01001000;//H
+        localparam OP_SRL = 8'b01001100;//L
+        localparam OP_NOR = 8'b01001110;//N
         
         reg [BUS_SIZE - 1 : 0] operador_1; 
         reg [BUS_SIZE - 1 : 0] operador_2; 
-        reg [5 : 0] operacion; 
+        reg [BUS_SIZE - 1 : 0] operacion; 
         reg[BUS_SIZE-1 : 0] resultado;
         
         
@@ -39,27 +39,46 @@
             
             always @(i_operando_1, i_operando_2, i_operacion) 
        begin     
-            resultado[BUS_SIZE] <= 0; ///????????
+            resultado[BUS_SIZE] <= 0;
             
             case(operacion)
                 OP_ADD:
-                    resultado <= {1'b0, operador_1} + {1'b0, operador_2}; 
-                    
+                    begin
+                        resultado <= operador_1 + operador_2; 
+                        // resultado <= {1'b0, operador_1} + {1'b0, operador_2}; 
+                    end
                 OP_SUB:
-                    resultado <= operador_1 - operador_2 ;
-                OP_AND: 
-                    resultado <= operador_1 & operador_2;
+                    begin
+                        resultado <= operador_1 - operador_2 ;
+                    end
+                OP_AND:
+                    begin
+                        resultado <= operador_1 & operador_2;
+                    end
                 OP_OR:
-                    resultado <= operador_1 | operador_2;
+                    begin
+                        resultado <= operador_1 | operador_2;
+                    end
                 OP_XOR:
-                    resultado <= operador_1 ^ operador_2;
+                    begin
+                        resultado <= operador_1 ^ operador_2;
+                    end
                 OP_SRA:
-                    resultado <= operador_1 >>> 1;
+                    begin
+                        resultado <= operador_1 >>> 1;
+                    end
                 OP_SRL:
-                    resultado <= operador_1 >> 1;
+                    begin
+                        resultado <= operador_1 >> 1;
+                    end
                 OP_NOR:
-                    resultado <= ~(operador_1 | operador_2);
-                default: resultado <= operador_1 & operador_2 ; 
+                    begin
+                        resultado <= ~(operador_1 | operador_2);
+                    end
+                default: 
+                    begin
+                        resultado <= operador_1 + operacion; 
+                    end
             endcase
         end
     endmodule
