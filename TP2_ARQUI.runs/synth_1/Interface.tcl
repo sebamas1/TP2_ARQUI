@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
-set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -90,6 +90,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v
+  C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v
 }
 OPTRACE "Adding files" END { }

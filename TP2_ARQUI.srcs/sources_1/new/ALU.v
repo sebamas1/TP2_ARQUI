@@ -7,7 +7,7 @@
             input [BUS_SIZE - 1 :0] i_operando_1,
             input [BUS_SIZE - 1 :0] i_operando_2,
             input [BUS_SIZE - 1 : 0] i_operacion,
-            output [BUS_SIZE + 1 :0] o_led
+            output [BUS_SIZE + 1 :0] o_resultado
             
         );
         
@@ -26,9 +26,9 @@
         reg[BUS_SIZE-1 : 0] resultado;
         
         
-        assign o_led[BUS_SIZE] = resultado[BUS_SIZE]; //carry
-        assign o_led[BUS_SIZE + 1] = ~| resultado[BUS_SIZE - 1 : 0]; //zero
-        assign o_led[BUS_SIZE : 0] = resultado;
+        assign o_resultado[BUS_SIZE] = resultado[BUS_SIZE]; //carry
+        assign o_resultado[BUS_SIZE + 1] = ~| resultado[BUS_SIZE - 1 : 0]; //zero
+        assign o_resultado[BUS_SIZE : 0] = resultado;
     
             always @(*)  
         begin       

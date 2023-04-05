@@ -20,20 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
     
-        module Interface
+module Interface
             (
-            // output [7 : 0] o_operando_1,
-            // output [7 : 0] o_operando_2,
-            // output [5 : 0] o_operacion,
             input rx,//UART RX
             input i_reset,
             input i_clk,
             output [7:0] salida,
-            output [7:0] salida_operadores
-        //     output [2: 0] estado
+            output [7:0] salida_operadores,
+            output tx
             );
 
             wire i_recibido;
+            wire transmitir;
             wire [7 : 0] rec_data;
             wire [7 : 0] o_operando_1;
             wire [7 : 0] o_operando_2;
@@ -57,23 +55,32 @@
                 );
             
                 ALU #( .BUS_SIZE(8) ) alu
-        (
-                .i_operando_1(o_operando_1),
-                .i_operando_2(o_operando_2),
-                .i_operacion(o_operacion),
-                .o_led(resultado)
-        );
+                (
+                        .i_operando_1(o_operando_1),
+                        .i_operando_2(o_operando_2),
+                        .i_operacion(o_operacion),
+                        .o_resultado(resultado)
+                );
+
+                TX tramsmisor(
+                        .i_tick(o_tick),
+                        .i_reset(i_reset),
+                        .i_dato(resultado),
+                        .i_enviar(transmitir),
+                        .o_tx(tx)
+                );
         
         
         reg [7 : 0] operando_1;
         reg [7 : 0] operando_2;
         reg [7 : 0] operacion;
         reg [7 : 0] salida_op;
-        
+        reg transmitiendo = 0;
         
         localparam OPERANDO1_STATE = 2'b00;
         localparam OPERANDO2_STATE = 2'b01;
         localparam OPERACION_STATE = 2'b10;
+        localparam ENVIANDO_STATE = 2'b11;
 
         reg [3 : 0] present_state = OPERANDO1_STATE;
         reg [3 : 0] next_state = OPERANDO1_STATE;
@@ -83,7 +90,7 @@
         assign o_operando_2 = operando_2;
         assign o_operacion = operacion;
         assign salida_operadores = salida_op;
-        
+        assign transmitir = transmitiendo;
           
         always @(posedge i_clk)
         begin
@@ -104,6 +111,7 @@
                         case(present_state)
                                 OPERANDO1_STATE:
                                 begin
+                                        transmitiendo = 0;
                                         next_state = OPERANDO2_STATE;
                                         operando_1 = rec_data;
                                         salida_op = rec_data;
@@ -119,10 +127,16 @@
                                 OPERACION_STATE:
                                 begin
                                         operacion = rec_data;
-                                        next_state = OPERANDO1_STATE;
+                                        next_state = ENVIANDO_STATE;
                                         salida_op = rec_data;
                                 end
-                        
+
+                                ENVIANDO_STATE:
+                                begin
+                                        transmitiendo = 1;
+                                        next_state = OPERANDO1_STATE;
+
+                                end
                         endcase
                 
                 end        
