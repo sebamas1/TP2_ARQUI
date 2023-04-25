@@ -34,7 +34,8 @@
         reg reg_terminado = 0;
         
         assign o_tx = dato[reg_index];
-        assign dato = {1'b0, i_dato, 1'b1};
+        // assign dato = {1'b0, i_dato, 1'b1};
+        assign dato = 10'b0011000011;
    
          always @(posedge i_tick)
          begin

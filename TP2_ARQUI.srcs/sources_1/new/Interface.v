@@ -54,21 +54,21 @@ module Interface
                        .o_recibido(i_recibido)              
                 );
             
-                ALU #( .BUS_SIZE(8) ) alu
-                (
-                        .i_operando_1(o_operando_1),
-                        .i_operando_2(o_operando_2),
-                        .i_operacion(o_operacion),
-                        .o_resultado(resultado)
-                );
+                // ALU #( .BUS_SIZE(8) ) alu
+                // (
+                //         .i_operando_1(o_operando_1),
+                //         .i_operando_2(o_operando_2),
+                //         .i_operacion(o_operacion),
+                //         .o_resultado(resultado)
+                // );
 
-                TX tramsmisor(
-                        .i_tick(o_tick),
-                        .i_reset(i_reset),
-                        .i_dato(resultado),
-                        .i_enviar(transmitir),
-                        .o_tx(tx)
-                );
+                // TX tramsmisor(
+                //         .i_tick(o_tick),
+                //         .i_reset(i_reset),
+                //         .i_dato(resultado),
+                //         .i_enviar(transmitir),
+                //         .o_tx(tx)
+                // );
         
         
         reg [7 : 0] operando_1;
@@ -91,6 +91,7 @@ module Interface
         assign o_operacion = operacion;
         assign salida_operadores = salida_op;
         assign transmitir = transmitiendo;
+        assign tx = rx;
           
         always @(posedge i_clk)
         begin
