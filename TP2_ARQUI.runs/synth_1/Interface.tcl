@@ -87,8 +87,10 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
+  C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ALU.v
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v
+  C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v
   C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v
 }
 OPTRACE "Adding files" END { }
