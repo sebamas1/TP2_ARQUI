@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/impl_1/Interface.tcl"
+  variable script "C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.runs/impl_1/Interface.tcl"
   variable category "vivado_impl"
 }
 
@@ -122,7 +122,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 1
+  set_param chipscope.maxJobs 2
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
@@ -130,15 +130,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.cache/wt [current_project]
-  set_property parent.project_path C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.xpr [current_project]
-  set_property ip_output_repo C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.cache/ip [current_project]
+  set_property webtalk.parent_dir {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.cache/wt} [current_project]
+  set_property parent.project_path {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.xpr} [current_project]
+  set_property ip_output_repo {{C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.dcp
+  add_files -quiet {{C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.dcp}}
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/constrs_1/new/uart.xdc
+  read_xdc {{C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/constrs_1/new/uart.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
@@ -295,4 +295,34 @@ OPTRACE "route_design write_checkpoint" END { }
 
 OPTRACE "route_design misc" END { }
 OPTRACE "Phase: Route Design" END { }
+OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
+OPTRACE "write_bitstream setup" START { }
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
+set rc [catch {
+  create_msg_db write_bitstream.pb
+OPTRACE "read constraints: write_bitstream" START { }
+OPTRACE "read constraints: write_bitstream" END { }
+  catch { write_mem_info -force -no_partial_mmi Interface.mmi }
+OPTRACE "write_bitstream setup" END { }
+OPTRACE "write_bitstream" START { }
+  write_bitstream -force Interface.bit 
+OPTRACE "write_bitstream" END { }
+OPTRACE "write_bitstream misc" START { }
+OPTRACE "read constraints: write_bitstream_post" START { }
+OPTRACE "read constraints: write_bitstream_post" END { }
+  catch {write_debug_probes -quiet -force Interface}
+  catch {file copy -force Interface.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
+} RESULT]
+if {$rc} {
+  step_failed write_bitstream
+  return -code error $RESULT
+} else {
+  end_step write_bitstream
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "write_bitstream misc" END { }
+OPTRACE "Phase: Write Bitstream" END { }
 OPTRACE "impl_1" END { }

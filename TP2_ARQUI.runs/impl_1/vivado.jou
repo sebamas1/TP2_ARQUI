@@ -2,12 +2,12 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Tue Apr 25 21:24:28 2023
-# Process ID: 6400
-# Current directory: C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/impl_1
+# Start of session at: Wed Apr 26 21:24:30 2023
+# Process ID: 13144
+# Current directory: C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.runs/impl_1
 # Command line: vivado.exe -log Interface.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Interface.tcl -notrace
-# Log file: C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/impl_1/Interface.vdi
-# Journal file: C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/impl_1\vivado.jou
-# Running On: DESKTOP-829O8AH, OS: Windows, CPU Frequency: 2904 MHz, CPU Physical cores: 2, Host memory: 12797 MB
+# Log file: C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.runs/impl_1/Interface.vdi
+# Journal file: C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.runs/impl_1\vivado.jou
+# Running On: LAPTOP-V62IM0BU, OS: Windows, CPU Frequency: 2803 MHz, CPU Physical cores: 4, Host memory: 8115 MB
 #-----------------------------------------------------------
 source Interface.tcl -notrace

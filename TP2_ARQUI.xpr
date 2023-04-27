@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="61" Path="C:/Users/nehemias/Desktop/facu/repo/TP2_ARQUI/TP2_ARQUI.xpr">
+<Project Version="7" Minor="61" Path="C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="ac8483d5363b4dd6a626b61ed7492278"/>

@@ -25,13 +25,14 @@ module Interface
             input rx,//UART RX
             input i_reset,
             input i_clk,
-            output [7:0] salida,
-            output [7:0] salida_operadores,
+            output [7 : 0] salida,
+            output [7 : 0] salida_operadores,
             output tx
             );
 
             wire i_recibido;
             wire transmitir;
+            wire transmitido;
             wire [7 : 0] rec_data;
             wire [7 : 0] o_operando_1;
             wire [7 : 0] o_operando_2;
@@ -69,7 +70,7 @@ module Interface
                         .i_dato(resultado),
                         .i_enviar(transmitir),
                         .o_tx(tx),
-                        .o_terminado(i_recibido)
+                        .o_terminado(transmitido)
                 );
         
         
