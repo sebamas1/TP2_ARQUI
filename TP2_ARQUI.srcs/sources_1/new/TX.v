@@ -67,109 +67,109 @@
 
         always @(posedge i_tick)
         begin
-            contador_ticks = contador_ticks + 1;
+            contador_ticks <= contador_ticks + 1;
             case(present_state)
                 IDDLE_STATE:
                 begin
                     if(i_enviar == 1 && terminado == 1'b0)
                         begin
-                            next_state = WAITING_STATE;
-                            terminado = 1'b0;
-                            contador_ticks = 4'b0000; 
+                            next_state <= WAITING_STATE;
+                            terminado <= 1'b0;
+                            contador_ticks <= 4'b0000; 
                         end
                 end
                 WAITING_STATE:
                     begin
-                                salida = 0;
+                                salida <= 0;
                                 if(contador_ticks == 4'b1111)
                                     begin
-                                        next_state = BIT0_STATE;
-                                        contador_ticks = 4'b0000;                     
+                                        next_state <= BIT0_STATE;
+                                        contador_ticks <= 4'b0000;                     
                                     end
                                     
                     end
                     
                 BIT0_STATE:
                     begin
-                        salida = 0;//i_dato[0];
+                        salida <= i_dato[0];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT1_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT1_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 
                 BIT1_STATE:
                     begin
-                        salida = 0;// = i_dato[1];
+                        salida <= i_dato[1];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT2_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT2_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 BIT2_STATE:
                     begin
-                        salida = 0;// = i_dato[2];
+                        salida <= i_dato[2];
                         if( contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT3_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT3_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 BIT3_STATE:
                     begin 
-                        salida = 0;// = i_dato[3];
+                        salida <= i_dato[3];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT4_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT4_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 BIT4_STATE:
                     begin
-                        salida = 1;// = i_dato[4];
+                        salida <= i_dato[4];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT5_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT5_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 BIT5_STATE:
                     begin
-                        salida = 1;// = i_dato[5];
+                        salida <= i_dato[5];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT6_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT6_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 BIT6_STATE:
                     begin
-                        salida = 0;// = i_dato[6];
+                        salida <= i_dato[6];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = BIT7_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= BIT7_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 BIT7_STATE:
                     begin
-                        salida = 0;// = i_dato[7];
+                        salida <= i_dato[7];
                         if(contador_ticks == 4'b1111)
                         begin
-                            next_state = STOP_STATE;
-                            contador_ticks = 4'b0000;
+                            next_state <= STOP_STATE;
+                            contador_ticks <= 4'b0000;
                         end
                     end
                 STOP_STATE:
                  begin
-                    salida = 1;
+                    salida <= 1;
                             if(contador_ticks == 4'b1111)
                                 begin
-                                    next_state = IDDLE_STATE;
-                                    contador_ticks = 4'b0000;    
-                                    terminado = 1'b1;                
+                                    next_state <= IDDLE_STATE;
+                                    contador_ticks <= 4'b0000;    
+                                    terminado <= 1'b1;                
                                 end
                         end
                 endcase
@@ -177,33 +177,6 @@
 
         assign o_tx = salida;
         assign o_terminado = terminado;
-
-   
-        //  always @(posedge i_tick)
-        //  begin
-        //     if(i_enviar == 1 && reg_terminado == 0)
-        //     begin
-        //         if (contador_ticks == 15)
-        //         begin
-        //             if(reg_index == 9)
-        //                 begin
-        //                     reg_index = 0;//termino de enviar
-        //                     reg_terminado = 1;
-        //                 end
-        //             else 
-        //                 begin
-        //                     reg_index = reg_index + 1;
-        //                 end
-        //             contador_ticks = 0;
-        //         end
-        //         contador_ticks <= contador_ticks + 1;
-        //     end
-        //     if(i_enviar == 0)
-        //     begin
-        //         reg_terminado = 0;
-        //         contador_ticks = 0;
-        //     end
-        //  end
          
        
         

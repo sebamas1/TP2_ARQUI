@@ -100,9 +100,9 @@ module Interface
             if(i_reset == 1)
             begin
                 present_state <= OPERANDO1_STATE;
-                operando_1 = 8'bxxxxxxxx;
-                operando_2 = 8'bxxxxxxxx;
-                operacion = 8'bxxxxxxxx;
+                operando_1 <= 8'bxxxxxxxx;
+                operando_2 <= 8'bxxxxxxxx;
+                operacion <= 8'bxxxxxxxx;
                 end
             else 
                 present_state <= next_state;
@@ -114,30 +114,30 @@ module Interface
                         case(present_state)
                                 OPERANDO1_STATE:
                                 begin
-                                        transmitiendo = 0;
-                                        next_state = OPERANDO2_STATE;
-                                        operando_1 = rec_data;
-                                        salida_op = rec_data;
+                                        transmitiendo <= 0;
+                                        next_state <= OPERANDO2_STATE;
+                                        operando_1 <= rec_data;
+                                        salida_op <= rec_data;
                                 end
                                 
                                 OPERANDO2_STATE:
                                 begin
-                                        operando_2 = rec_data;
-                                        next_state = OPERACION_STATE;
-                                        salida_op = rec_data;
+                                        operando_2 <= rec_data;
+                                        next_state <= OPERACION_STATE;
+                                        salida_op <= rec_data;
                                 end
                                 
                                 OPERACION_STATE:
                                 begin
-                                        operacion = rec_data;
-                                        next_state = ENVIANDO_STATE;
-                                        salida_op = rec_data;
+                                        operacion <= rec_data;
+                                        next_state <= ENVIANDO_STATE;
+                                        salida_op <= rec_data;
                                 end
 
                                 ENVIANDO_STATE:
                                 begin
-                                        transmitiendo = 1;
-                                        next_state = OPERANDO1_STATE;
+                                        transmitiendo <= 1;
+                                        next_state <= OPERANDO1_STATE;
 
                                 end
                         endcase
