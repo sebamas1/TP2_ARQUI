@@ -32,7 +32,6 @@ module Interface
 
             wire i_recibido;
             wire transmitir;
-            wire transmitido;
             wire [7 : 0] rec_data;
             wire [7 : 0] o_operando_1;
             wire [7 : 0] o_operando_2;
@@ -69,8 +68,7 @@ module Interface
                         .i_reset(i_reset),
                         .i_dato(resultado),
                         .i_enviar(transmitir),
-                        .o_tx(tx),
-                        .o_terminado(transmitido)
+                        .o_tx(tx)
                 );
         
         
@@ -83,7 +81,6 @@ module Interface
         localparam OPERANDO1_STATE = 2'b00;
         localparam OPERANDO2_STATE = 2'b01;
         localparam OPERACION_STATE = 2'b10;
-        localparam ENVIANDO_STATE = 2'b11;
 
         reg [3 : 0] present_state = OPERANDO1_STATE;
         reg [3 : 0] next_state = OPERANDO1_STATE;
@@ -130,18 +127,14 @@ module Interface
                                 OPERACION_STATE:
                                 begin
                                         operacion <= rec_data;
-                                        next_state <= ENVIANDO_STATE;
-                                        salida_op <= rec_data;
-                                end
-
-                                ENVIANDO_STATE:
-                                begin
-                                        transmitiendo <= 1;
                                         next_state <= OPERANDO1_STATE;
+                                        salida_op <= rec_data;
 
+                                        transmitiendo <= 1;
                                 end
-                        endcase
+
+                        endcase   
                 
-                end        
+                end    
 
 endmodule

@@ -26,8 +26,7 @@
         input i_reset,
         input [7 : 0] i_dato,
         input i_enviar,
-        output o_tx,
-        output o_terminado
+        output o_tx
         );
 
         localparam IDDLE_STATE = 4'b0000;
@@ -50,6 +49,8 @@
         // reg [3 : 0] reg_index = 0;
         reg terminado = 1'b0;
         reg salida = 1;
+        reg contador = 1'b0;
+        reg i_enviar_prev;
         
         // assign o_tx = dato[reg_index];
         // assign dato = {1'b0, i_dato, 1'b1};
@@ -61,8 +62,26 @@
             if(i_reset == 1)
                 present_state <= IDDLE_STATE;
             else 
+            begin
                 present_state <= next_state;
+            end
+                if (i_enviar && !i_enviar_prev) 
+                begin
+                    terminado <= 0;
+                end 
+                else 
+                begin
+                    terminado <= 1;
+                end
+                i_enviar_prev <= i_enviar;
         end
+
+        // always @(posedge i_clk) 
+        // begin
+        //     // begin
+                
+        //     // end
+        // end
         
 
         always @(posedge i_tick)
@@ -71,10 +90,9 @@
             case(present_state)
                 IDDLE_STATE:
                 begin
-                    if(i_enviar == 1 && terminado == 1'b0)
+                    if(i_enviar == 1 && terminado == 0)
                         begin
                             next_state <= WAITING_STATE;
-                            terminado <= 1'b0;
                             contador_ticks <= 4'b0000; 
                         end
                 end
@@ -169,14 +187,14 @@
                                 begin
                                     next_state <= IDDLE_STATE;
                                     contador_ticks <= 4'b0000;    
-                                    terminado <= 1'b1;                
+                                    // terminado <= 1'b1;                
                                 end
                         end
                 endcase
         end
 
+        //assign o_terminado = terminado;
         assign o_tx = salida;
-        assign o_terminado = terminado;
          
        
         
