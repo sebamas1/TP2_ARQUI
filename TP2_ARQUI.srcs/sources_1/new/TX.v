@@ -47,17 +47,13 @@
         // wire [9 : 0] dato; 
         reg [3 : 0] contador_ticks = 5'b00000;
         // reg [3 : 0] reg_index = 0;
-        reg terminado = 1'b0;
+        reg terminado = 1'b1;
         reg salida = 1;
         reg contador = 1'b0;
-        reg i_enviar_prev;
-        
-        // assign o_tx = dato[reg_index];
-        // assign dato = {1'b0, i_dato, 1'b1};
-        // assign dato = 10'b0011000011;
+        reg i_enviar_prev = 1'b0;
 
 
-        always @(posedge i_clk) //hay que ver que venga desde un alto y empiece con un flanco descendente
+        always @(posedge i_clk)
         begin
             if(i_reset == 1)
                 present_state <= IDDLE_STATE;
@@ -69,15 +65,16 @@
 
         always @(i_enviar)
         begin
-                if (i_enviar && !i_enviar_prev) 
+                if (i_enviar == 1 && i_enviar_prev == 0) 
                 begin
                     terminado <= 0;
+                    i_enviar_prev <= i_enviar;
                 end 
                 else 
                 begin
                     terminado <= 1;
+                    i_enviar_prev <= i_enviar;
                 end
-                i_enviar_prev <= i_enviar;
         end
 
         // always @(posedge i_clk) 
@@ -94,7 +91,7 @@
             case(present_state)
                 IDDLE_STATE:
                 begin
-                    if(i_enviar == 1 && terminado == 0)
+                    if(terminado == 0)
                         begin
                             next_state <= WAITING_STATE;
                             contador_ticks <= 4'b0000; 

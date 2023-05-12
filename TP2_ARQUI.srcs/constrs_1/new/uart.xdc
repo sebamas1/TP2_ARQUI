@@ -74,13 +74,13 @@ set_property PACKAGE_PIN N3 [get_ports {salida_operadores[5]}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {salida_operadores[5]}]
 set_property PACKAGE_PIN P1 [get_ports {salida_operadores[6]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {salida_operadores[6]}]
-set_property PACKAGE_PIN L1 [get_ports {salida_operadores[7]}]					
-	set_property IOSTANDARD LVCMOS33 [get_ports {salida_operadores[7]}]
+set_property PACKAGE_PIN L1 [get_ports {led_test}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {led_test}]
 	
 	
 #7 segment display
-# set_property PACKAGE_PIN W7 [get_ports {seg[0]}]					
-# 	set_property IOSTANDARD LVCMOS33 [get_ports {seg[0]}]
+set_property PACKAGE_PIN W7 [get_ports {salida_operadores[7]}]					
+	set_property IOSTANDARD LVCMOS33 [get_ports {salida_operadores[7]}]
 # set_property PACKAGE_PIN W6 [get_ports {seg[1]}]					
 # 	set_property IOSTANDARD LVCMOS33 [get_ports {seg[1]}]
 # set_property PACKAGE_PIN U8 [get_ports {seg[2]}]					

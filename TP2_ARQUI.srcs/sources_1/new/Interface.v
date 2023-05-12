@@ -27,6 +27,7 @@ module Interface
             input i_clk,
             output [7 : 0] salida,
             output [7 : 0] salida_operadores,
+            output led_test,
             output tx
             );
 
@@ -76,7 +77,7 @@ module Interface
         reg [7 : 0] operando_2;
         reg [7 : 0] operacion;
         reg [7 : 0] salida_op;
-        reg transmitiendo = 0;
+        reg transmitiendo = 1'b0;
         
         localparam OPERANDO1_STATE = 2'b00;
         localparam OPERANDO2_STATE = 2'b01;
@@ -91,6 +92,8 @@ module Interface
         assign o_operacion = operacion;
         assign salida_operadores = salida_op;
         assign transmitir = transmitiendo;
+
+        assign led_test = transmitiendo;
           
         always @(posedge i_clk)
         begin
