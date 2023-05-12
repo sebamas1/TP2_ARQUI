@@ -65,6 +65,10 @@
             begin
                 present_state <= next_state;
             end
+        end
+
+        always @(i_enviar)
+        begin
                 if (i_enviar && !i_enviar_prev) 
                 begin
                     terminado <= 0;
