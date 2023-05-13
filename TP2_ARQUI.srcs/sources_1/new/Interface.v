@@ -27,8 +27,8 @@ module Interface
             input i_clk,
             output [7 : 0] salida,
             output [7 : 0] salida_operadores,
-            output led_test,
-            output tx
+            output tx,
+            output [6:0] display1
             );
 
             wire i_recibido;
@@ -71,6 +71,13 @@ module Interface
                         .i_enviar(transmitir),
                         .o_tx(tx)
                 );
+
+                Segmento segmento (
+                        .hex_in(salida_operadores),
+                        .display_sel(2'b00),
+                        .seg_out(display1)
+                );
+
         
         
         reg [7 : 0] operando_1;
@@ -78,6 +85,7 @@ module Interface
         reg [7 : 0] operacion;
         reg [7 : 0] salida_op;
         reg transmitiendo = 1'b0;
+
         
         localparam OPERANDO1_STATE = 2'b00;
         localparam OPERANDO2_STATE = 2'b01;
@@ -93,7 +101,6 @@ module Interface
         assign salida_operadores = salida_op;
         assign transmitir = transmitiendo;
 
-        assign led_test = transmitiendo;
           
         always @(posedge i_clk)
         begin

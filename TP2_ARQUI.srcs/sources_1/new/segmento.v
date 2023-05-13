@@ -1,38 +1,34 @@
-module seven_segment_display(
-    input i_clk,
-    input [7:0] i_data,
-    output reg [6:0] o_seg_out
+module Segmento(
+  input wire [3:0] hex_in,
+  input wire [1:0] display_sel,
+  output wire [6:0] seg_out
 );
 
-reg [3:0] digit = 0;
-reg [6:0] segment_data;
+  reg [6:0] segment_data;
 
-// 7-segment display segment values
-//          a  b  c  d  e  f  g
-// digit 0: 1  1  1  1  1  1  0
-// digit 1: 0  1  1  0  0  0  0
-// digit 2: 1  1  0  1  1  0  1
-// digit 3: 1  1  1  1  0  0  1
-// digit 4: 0  1  1  0  0  1  1
-// digit 5: 1  0  1  1  0  1  1
-// digit 6: 1  0  1  1  1  1  1
-// digit 7: 1  1  1  0  0  0  0
-always @ (posedge clk) begin
-    case (digit)
-        4'd0: segment_data = 7'b1000000; // 0
-        4'd1: segment_data = 7'b1111001; // 1
-        4'd2: segment_data = 7'b0100100; // 2
-        4'd3: segment_data = 7'b0110000; // 3
-        4'd4: segment_data = 7'b0011001; // 4
-        4'd5: segment_data = 7'b0010010; // 5
-        4'd6: segment_data = 7'b0000010; // 6
-        4'd7: segment_data = 7'b1111000; // 7
-        4'd8: segment_data = 7'b0000000; // 8
-        4'd9: segment_data = 7'b0011000; // 9
-        default: segment_data = 7'b1111111; // off
+  always @(*) begin
+    case(hex_in)
+      4'h0: segment_data = 7'b1000000; // Display 0
+      4'h1: segment_data = 7'b1111001; // Display 1
+      4'h2: segment_data = 7'b0100100; // Display 2
+      4'h3: segment_data = 7'b0110000; // Display 3
+      4'h4: segment_data = 7'b0011001; // Display 4
+      4'h5: segment_data = 7'b0010010; // Display 5
+      4'h6: segment_data = 7'b0000010; // Display 6
+      4'h7: segment_data = 7'b1111000; // Display 7
+      4'h8: segment_data = 7'b0000000; // Display 8
+      4'h9: segment_data = 7'b0010000; // Display 9
+      4'ha: segment_data = 7'b0001000; // Display A
+      4'hb: segment_data = 7'b0000011; // Display B
+      4'hc: segment_data = 7'b1000110; // Display C
+      4'hd: segment_data = 7'b0100001; // Display D
+      4'he: segment_data = 7'b0000110; // Display E
+      4'hf: segment_data = 7'b0001110; // Display F
+      default: segment_data = 7'b1111111; // Display blank
     endcase
-    seg_out <= segment_data;
-    digit <= digit + 1;
-end
+  end
+
+//   assign seg_out = segment_data;
+assign seg_out = (display_sel == 2'b00) ? segment_data : 7'b1111111;
 
 endmodule

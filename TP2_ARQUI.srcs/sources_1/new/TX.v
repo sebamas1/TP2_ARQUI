@@ -63,19 +63,19 @@
             end
         end
 
-        always @(i_enviar)
-        begin
-                if (i_enviar == 1 && i_enviar_prev == 0) 
-                begin
-                    terminado <= 0;
-                    i_enviar_prev <= i_enviar;
-                end 
-                else 
-                begin
-                    terminado <= 1;
-                    i_enviar_prev <= i_enviar;
-                end
-        end
+        // always @(i_enviar)
+        // begin
+        //         if (i_enviar == 1 && i_enviar_prev == 0) 
+        //         begin
+        //             terminado <= 0;
+        //             i_enviar_prev <= i_enviar;
+        //         end 
+        //         else 
+        //         begin
+        //             terminado <= 1;
+        //             i_enviar_prev <= i_enviar;
+        //         end
+        // end
 
         // always @(posedge i_clk) 
         // begin
@@ -91,6 +91,18 @@
             case(present_state)
                 IDDLE_STATE:
                 begin
+                if (i_enviar == 1 && i_enviar_prev == 0) 
+                begin
+                    terminado <= 0;
+                    i_enviar_prev <= i_enviar;
+                end 
+                else 
+                begin
+                    terminado <= 1;
+                    i_enviar_prev <= i_enviar;
+                end
+
+
                     if(terminado == 0)
                         begin
                             next_state <= WAITING_STATE;
