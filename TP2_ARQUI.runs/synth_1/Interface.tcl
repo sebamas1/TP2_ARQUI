@@ -91,7 +91,7 @@ read_verilog -library xil_defaultlib {
   {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v}
   {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v}
   {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v}
-  {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/segmento.v}
+  {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/multiplexado.v}
   {C:/Users/CFO Tech/Documents/repo-unc/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v}
 }
 OPTRACE "Adding files" END { }

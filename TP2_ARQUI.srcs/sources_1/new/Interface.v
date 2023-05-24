@@ -28,7 +28,8 @@ module Interface
             output [7 : 0] salida,
             output [7 : 0] salida_operadores,
             output tx,
-            output [6:0] display1
+            output [6:0] display1,
+            output [3:0] an
             );
 
             wire i_recibido;
@@ -72,10 +73,11 @@ module Interface
                         .o_tx(tx)
                 );
 
-                Segmento segmento (
-                        .hex_in(salida_operadores),
-                        .display_sel(2'b00),
-                        .seg_out(display1)
+                Basys3_Multiplexado basys3_Multiplexado (
+                        .i_clk(i_clk),
+                        .value(salida_operadores),
+                        .seg(display1),
+                        .an(an)
                 );
 
         
