@@ -13,7 +13,7 @@
         
         localparam OP_ADD = 8'b01010011;//S
         localparam OP_SUB = 8'b01010010;//R
-        localparam OP_AND = 8'b01000001;//A
+        localparam OP_AND = 8'b01000001;//A 
         localparam OP_OR =  8'b01001111;//O
         localparam OP_XOR = 8'b01011000;//X
         localparam OP_SRA = 8'b01001000;//H
@@ -77,7 +77,7 @@
                     end
                 default: 
                     begin
-                        resultado <= operador_1 + operacion; 
+                        resultado <= operador_1 + operador_2; 
                     end
             endcase
         end

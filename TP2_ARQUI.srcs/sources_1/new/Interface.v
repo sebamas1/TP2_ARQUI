@@ -73,11 +73,13 @@ module Interface
                         .o_tx(tx)
                 );
 
-                Basys3_Multiplexado basys3_Multiplexado (
-                        .i_clk(i_clk),
-                        .value(salida_operadores),
+                Basys3_7SegmentMultiplexing basys3_7SegmentMultiplexing (
+                        
+                        .data(salida_operadores),
                         .seg(display1),
-                        .an(an)
+                        .an(an),
+                        .clk(o_tick),
+                        .rst(resultado)
                 );
 
         
