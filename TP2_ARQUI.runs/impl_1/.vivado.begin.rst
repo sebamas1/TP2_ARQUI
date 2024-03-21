@@ -3,3 +3,13 @@
     <Process Command="vivado.bat" Owner="CFO Tech" Host="LAPTOP-V62IM0BU" Pid="18624" HostCore="8" HostMemory="08115187712">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="6164" HostCore="4" HostMemory="012797685760">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="4108" HostCore="4" HostMemory="012797685760">
+    </Process>
+</ProcessHandle>

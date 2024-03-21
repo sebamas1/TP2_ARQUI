@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1684973870" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Interface.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1709245518" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Interface.dcp">
   <File Type="PA-TCL" Name="Interface.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="Interface_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Interface_reports.tcl"/>
   <File Type="RDS-RDS" Name="Interface.vds"/>
   <File Type="RDS-UTIL" Name="Interface_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Interface_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Interface.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="Interface_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="Interface_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.v">
@@ -75,7 +72,7 @@
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
-  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/new/uart.xdc">
       <FileInfo>
@@ -87,7 +84,7 @@
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
-  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
     <File Path="$PSRCDIR/utils_1/imports/synth_1/Interface.dcp">
       <FileInfo>
