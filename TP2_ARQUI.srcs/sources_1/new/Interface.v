@@ -56,19 +56,19 @@ module Interface
                        .o_recibido(i_recibido)              
                 );
             
-                ALU #( .BUS_SIZE(8) ) alu
-                (
-                        .i_operando_1(o_operando_1),
-                        .i_operando_2(o_operando_2),
-                        .i_operacion(o_operacion),
-                        .o_resultado(resultado)
-                );
+                // ALU #( .BUS_SIZE(8) ) alu
+                // (
+                //         .i_operando_1(o_operando_1),
+                //         .i_operando_2(o_operando_2),
+                //         .i_operacion(o_operacion),
+                //         .o_resultado(resultado)
+                // );
 
                 TX tramsmisor(
                         .i_clk(i_clk),
                         .i_tick(o_tick),
                         .i_reset(i_reset),
-                        .i_dato(resultado),
+                        .i_instruccion(INSTRUCCION),
                         .i_enviar(transmitir),
                         .o_tx(tx)
                 );
@@ -91,12 +91,15 @@ module Interface
         reg transmitiendo = 1'b0;
 
         
-        localparam OPERANDO1_STATE = 2'b00;
-        localparam OPERANDO2_STATE = 2'b01;
-        localparam OPERACION_STATE = 2'b10;
+        localparam PRIMER_HEXA = 2'b00;
+        localparam SEGUNDO_HEXA = 2'b01;
+        localparam TERCER_HEXA = 2'b10;
+        localparam CUARTO_HEXA = 2'b11;
 
-        reg [3 : 0] present_state = OPERANDO1_STATE;
-        reg [3 : 0] next_state = OPERANDO1_STATE;
+        reg [31 : 0] INSTRUCCION;
+
+        reg [3 : 0] present_state = PRIMER_HEXA;
+        reg [3 : 0] next_state = PRIMER_HEXA;
 
         assign salida = resultado;
         assign o_operando_1 = operando_1;
@@ -110,7 +113,7 @@ module Interface
         begin
             if(i_reset == 1)
             begin
-                present_state <= OPERANDO1_STATE;
+                present_state <= PRIMER_HEXA;
                 operando_1 <= 8'bxxxxxxxx;
                 operando_2 <= 8'bxxxxxxxx;
                 operacion <= 8'bxxxxxxxx;
@@ -123,26 +126,37 @@ module Interface
                 begin
                 
                         case(present_state)
-                                OPERANDO1_STATE:
+                                PRIMER_HEXA:
                                 begin
                                         transmitiendo <= 0;
-                                        next_state <= OPERANDO2_STATE;
-                                        operando_1 <= rec_data;
-                                        salida_op <= rec_data;
+                                        next_state <= SEGUNDO_HEXA;
+                                        // operando_1 <= rec_data;
+                                        // salida_op <= rec_data;
+                                        INSTRUCCION [ 7 : 0] <= rec_data;
                                 end
                                 
-                                OPERANDO2_STATE:
+                                SEGUNDO_HEXA:
                                 begin
-                                        operando_2 <= rec_data;
-                                        next_state <= OPERACION_STATE;
-                                        salida_op <= rec_data;
+                                        // operando_2 <= rec_data;
+                                        next_state <= TERCER_HEXA;
+                                        // salida_op <= rec_data;
+                                        INSTRUCCION [ 15 : 8] <= rec_data;
+                                end
+
+                                TERCER_HEXA:
+                                begin
+                                        // operando_2 <= rec_data;
+                                        next_state <= CUARTO_HEXA;
+                                        // salida_op <= rec_data;
+                                        INSTRUCCION [ 23 : 16] <= rec_data;
                                 end
                                 
-                                OPERACION_STATE:
+                                CUARTO_HEXA:
                                 begin
-                                        operacion <= rec_data;
-                                        next_state <= OPERANDO1_STATE;
-                                        salida_op <= rec_data;
+                                        // operacion <= rec_data;
+                                        next_state <= PRIMER_HEXA;
+                                        // salida_op <= rec_data;
+                                        INSTRUCCION [ 31 : 24] <= rec_data;
 
                                         transmitiendo <= 1;
                                 end

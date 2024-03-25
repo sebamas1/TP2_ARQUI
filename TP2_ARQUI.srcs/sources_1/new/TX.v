@@ -24,7 +24,7 @@
         input i_clk,
         input i_tick,
         input i_reset,
-        input [7 : 0] i_dato,
+        input [31 : 0] i_instruccion,
         input i_enviar,
         output o_tx
         );
@@ -51,7 +51,9 @@
         reg salida = 1;
         reg contador = 1'b0;
         reg i_enviar_prev = 1'b0;
-
+        
+        reg [3 : 0] contadorTX = 4'b0000;
+        reg [7 : 0] dato_transmicion = 8'b00000000;
 
         always @(posedge i_clk)
         begin
@@ -91,38 +93,39 @@
             case(present_state)
                 IDDLE_STATE:
                 begin
-                if (i_enviar == 1 && i_enviar_prev == 0) 
-                begin
-                    terminado <= 0;
-                    i_enviar_prev <= i_enviar;
-                end 
-                else 
-                begin
-                    terminado <= 1;
-                    i_enviar_prev <= i_enviar;
-                end
-
+                    if (i_enviar == 1 && i_enviar_prev == 0) 
+                    begin //si se activa el envio por primera vez
+                        terminado <= 0;
+                        i_enviar_prev <= i_enviar;
+                        dato_transmicion <= i_instruccion[7 : 0];
+                    end 
+                    else 
+                    begin
+                        terminado <= 1;
+                        i_enviar_prev <= i_enviar;
+                    end
 
                     if(terminado == 0)
-                        begin
+                        begin // cuando se activa, cambia de estado
                             next_state <= WAITING_STATE;
                             contador_ticks <= 4'b0000; 
+                            
                         end
                 end
+
                 WAITING_STATE:
                     begin
-                                salida <= 0;
-                                if(contador_ticks == 4'b1111)
-                                    begin
-                                        next_state <= BIT0_STATE;
-                                        contador_ticks <= 4'b0000;                     
-                                    end
-                                    
+                        salida <= 0;
+                        if(contador_ticks == 4'b1111)
+                            begin
+                                next_state <= BIT0_STATE;
+                                contador_ticks <= 4'b0000;                     
+                            end
                     end
                     
                 BIT0_STATE:
                     begin
-                        salida <= i_dato[0];
+                        salida <= dato_transmicion[0];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT1_STATE;
@@ -132,7 +135,7 @@
                 
                 BIT1_STATE:
                     begin
-                        salida <= i_dato[1];
+                        salida <= dato_transmicion[1];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT2_STATE;
@@ -141,7 +144,7 @@
                     end
                 BIT2_STATE:
                     begin
-                        salida <= i_dato[2];
+                        salida <= dato_transmicion[2];
                         if( contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT3_STATE;
@@ -150,7 +153,7 @@
                     end
                 BIT3_STATE:
                     begin 
-                        salida <= i_dato[3];
+                        salida <= dato_transmicion[3];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT4_STATE;
@@ -159,7 +162,7 @@
                     end
                 BIT4_STATE:
                     begin
-                        salida <= i_dato[4];
+                        salida <= dato_transmicion[4];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT5_STATE;
@@ -168,7 +171,7 @@
                     end
                 BIT5_STATE:
                     begin
-                        salida <= i_dato[5];
+                        salida <= dato_transmicion[5];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT6_STATE;
@@ -177,7 +180,7 @@
                     end
                 BIT6_STATE:
                     begin
-                        salida <= i_dato[6];
+                        salida <= dato_transmicion[6];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= BIT7_STATE;
@@ -186,7 +189,7 @@
                     end
                 BIT7_STATE:
                     begin
-                        salida <= i_dato[7];
+                        salida <= dato_transmicion[7];
                         if(contador_ticks == 4'b1111)
                         begin
                             next_state <= STOP_STATE;
@@ -194,15 +197,38 @@
                         end
                     end
                 STOP_STATE:
-                 begin
-                    salida <= 1;
-                            if(contador_ticks == 4'b1111)
+                    begin
+                        salida <= 1;
+                        if(contador_ticks == 4'b1111)
+                            begin
+                                contadorTX <= contadorTX + 1;
+                                if(contadorTX == 3)
                                 begin
                                     next_state <= IDDLE_STATE;
-                                    contador_ticks <= 4'b0000;    
-                                    // terminado <= 1'b1;                
+                                    contadorTX <= 0;
+                                    contador_ticks <= 4'b0000;
                                 end
-                        end
+                                else 
+                                begin
+                                    if(contadorTX == 0)
+                                    begin
+                                        dato_transmicion <= i_instruccion[ 15 : 8];
+                                    end
+                                    else if(contadorTX == 1)
+                                    begin
+                                        dato_transmicion <= i_instruccion[ 23 : 16];
+                                    end
+                                    else if(contadorTX == 2)
+                                    begin
+                                        dato_transmicion <= i_instruccion[ 31 : 24];
+                                    end
+                                    next_state <= WAITING_STATE;
+                                    contador_ticks <= 4'b0000;    
+                                end
+                                // next_state <= WAITING_STATE;
+                                // contador_ticks <= 4'b0000;              
+                            end
+                    end
                 endcase
         end
 
