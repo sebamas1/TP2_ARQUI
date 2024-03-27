@@ -1,60 +1,35 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="CFO Tech" Host="LAPTOP-V62IM0BU" Pid="18624" HostCore="8" HostMemory="08115187712">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="14128" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="6164" HostCore="4" HostMemory="012797685760">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="6192" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="4108" HostCore="4" HostMemory="012797685760">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="10416" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="21032" HostCore="4" HostMemory="012797685760">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="19400" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="15800" HostCore="4" HostMemory="012797685760">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="6556" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="5228" HostCore="4" HostMemory="012797685760">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="4532" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="19116" HostCore="4" HostMemory="012797685760">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="17812" HostCore="4" HostMemory="012797685760">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="11684" HostCore="4" HostMemory="012797685760">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="8524" HostCore="4" HostMemory="012797685760">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="14784" HostCore="4" HostMemory="012797685760">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="23000" HostCore="4" HostMemory="012797685760">
+    <Process Command="vivado.bat" Owner="nemia" Host="DESKTOP-I1EUJ95" Pid="17440" HostCore="4" HostMemory="012797685760">
     </Process>
 </ProcessHandle>

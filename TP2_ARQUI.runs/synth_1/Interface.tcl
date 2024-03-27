@@ -88,6 +88,8 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v
+  C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Etapa_IF.v
+  C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ROM.v
   C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v
   C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v
   C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/multiplexado2.v

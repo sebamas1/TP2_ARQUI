@@ -202,31 +202,22 @@
                         if(contador_ticks == 4'b1111)
                             begin
                                 contadorTX <= contadorTX + 1;
-                                if(contadorTX == 3)
+                                if(contadorTX == 3) // Si ya se enviaron los 3 bytes regresa a IDDLE_STATE
                                 begin
                                     next_state <= IDDLE_STATE;
                                     contadorTX <= 0;
                                     contador_ticks <= 4'b0000;
                                 end
-                                else 
+                                else // Si no, se envia el siguiente byte
                                 begin
-                                    if(contadorTX == 0)
-                                    begin
-                                        dato_transmicion <= i_instruccion[ 15 : 8];
-                                    end
-                                    else if(contadorTX == 1)
-                                    begin
-                                        dato_transmicion <= i_instruccion[ 23 : 16];
-                                    end
-                                    else if(contadorTX == 2)
-                                    begin
-                                        dato_transmicion <= i_instruccion[ 31 : 24];
-                                    end
+                                    case(contadorTX)
+                                        0: dato_transmicion <= i_instruccion[15:8];
+                                        1: dato_transmicion <= i_instruccion[23:16];
+                                        2: dato_transmicion <= i_instruccion[31:24];
+                                    endcase
                                     next_state <= WAITING_STATE;
                                     contador_ticks <= 4'b0000;    
-                                end
-                                // next_state <= WAITING_STATE;
-                                // contador_ticks <= 4'b0000;              
+                                end           
                             end
                     end
                 endcase

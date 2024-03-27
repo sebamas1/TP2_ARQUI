@@ -56,19 +56,21 @@ module Interface
                        .o_recibido(i_recibido)              
                 );
             
-                // ALU #( .BUS_SIZE(8) ) alu
-                // (
-                //         .i_operando_1(o_operando_1),
-                //         .i_operando_2(o_operando_2),
-                //         .i_operacion(o_operacion),
-                //         .o_resultado(resultado)
-                // );
+                Etapa_IF etapa_ifa(
+                        .i_clk(i_clk),
+                        .i_reset(i_reset),
+                        .i_branch(0), //no se usa
+                        .i_branch_addr(0), //no se usa
+                        .i_stall(0),
+                        .i_instruccion(INSTRUCCION),
+                        .i_instruccion_addr(instruccion_addr)
+                );
 
                 TX tramsmisor(
                         .i_clk(i_clk),
                         .i_tick(o_tick),
                         .i_reset(i_reset),
-                        .i_instruccion(INSTRUCCION),
+                        .i_instruccion(etapa_ifa.o_instruccion),
                         .i_enviar(transmitir),
                         .o_tx(tx)
                 );
@@ -89,6 +91,7 @@ module Interface
         reg [7 : 0] operacion;
         reg [7 : 0] salida_op;
         reg transmitiendo = 1'b0;
+        reg [10 : 0] instruccion_addr = 0;
 
         
         localparam PRIMER_HEXA = 2'b00;
@@ -159,6 +162,7 @@ module Interface
                                         INSTRUCCION [ 31 : 24] <= rec_data;
 
                                         transmitiendo <= 1;
+                                        instruccion_addr <= instruccion_addr + 1;
                                 end
 
                         endcase   
