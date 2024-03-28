@@ -14,7 +14,7 @@ ECHO est  desactivado.
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source Interface.tcl -notrace
-create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 468.863 ; gain = 183.238
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 468.977 ; gain = 183.941
 Command: read_checkpoint -auto_incremental -incremental C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/utils_1/imports/synth_1/Interface.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/utils_1/imports/synth_1/Interface.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -23,17 +23,19 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4020
+INFO: [Synth 8-7075] Helper process launched with PID 16688
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1304.004 ; gain = 439.012
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1305.254 ; gain = 439.523
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-11241] undeclared symbol 'o_tick', assumed default net type 'wire' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:47]
 INFO: [Synth 8-11241] undeclared symbol 'INSTRUCCION', assumed default net type 'wire' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:65]
 INFO: [Synth 8-11241] undeclared symbol 'instruccion_addr', assumed default net type 'wire' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:66]
-WARNING: [Synth 8-8895] 'instruccion_addr' is already implicitly declared on line 66 [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:94]
-WARNING: [Synth 8-8895] 'INSTRUCCION' is already implicitly declared on line 65 [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:102]
+WARNING: [Synth 8-8895] 'instruccion_addr' is already implicitly declared on line 66 [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:95]
+WARNING: [Synth 8-8895] 'INSTRUCCION' is already implicitly declared on line 65 [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:103]
 INFO: [Synth 8-6157] synthesizing module 'Interface' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Baud_gen' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'Baud_gen' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Baud_gen.v:25]
@@ -44,78 +46,55 @@ INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nemi
 INFO: [Synth 8-6155] done synthesizing module 'RX' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/RX.v:23]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:59]
 INFO: [Synth 8-6157] synthesizing module 'Etapa_IF' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Etapa_IF.v:23]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Etapa_IF.v:44]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Etapa_IF.v:45]
 INFO: [Synth 8-6157] synthesizing module 'ROM' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ROM.v:8]
 INFO: [Synth 8-6155] done synthesizing module 'ROM' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ROM.v:8]
 INFO: [Synth 8-6155] done synthesizing module 'Etapa_IF' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Etapa_IF.v:23]
 WARNING: [Synth 8-7071] port 'o_instruccion' of module 'Etapa_IF' is unconnected for instance 'etapa_ifa' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:59]
 WARNING: [Synth 8-7071] port 'o_pc_value' of module 'Etapa_IF' is unconnected for instance 'etapa_ifa' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:59]
-WARNING: [Synth 8-7023] instance 'etapa_ifa' of module 'Etapa_IF' has 9 connections declared, but only 7 given [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:59]
+WARNING: [Synth 8-7023] instance 'etapa_ifa' of module 'Etapa_IF' has 10 connections declared, but only 8 given [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:59]
 INFO: [Synth 8-6157] synthesizing module 'TX' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v:213]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v:93]
 INFO: [Synth 8-6155] done synthesizing module 'TX' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/TX.v:23]
 INFO: [Synth 8-6157] synthesizing module 'Basys3_7SegmentMultiplexing' [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/multiplexado2.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'Basys3_7SegmentMultiplexing' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/multiplexado2.v:1]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:131]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:132]
 INFO: [Synth 8-6155] done synthesizing module 'Interface' (0#1) [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:23]
+WARNING: [Synth 8-6014] Unused sequential element ram_data_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/ROM.v:52]
+WARNING: [Synth 8-4767] Trying to implement RAM 'BRAM_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: Write port has constant address. 
+	2: No valid read/write found for RAM. 
+RAM "BRAM_reg" dissolved into registers
+WARNING: [Synth 8-4767] Trying to implement RAM ' ' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+	1: Write port has constant address. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM dissolved into registers
 WARNING: [Synth 8-6014] Unused sequential element seg_out_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/multiplexado2.v:25]
-WARNING: [Synth 8-6014] Unused sequential element operando_1_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:108]
-WARNING: [Synth 8-6014] Unused sequential element operando_2_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:109]
-WARNING: [Synth 8-6014] Unused sequential element operacion_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:110]
+WARNING: [Synth 8-6014] Unused sequential element operando_1_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:109]
+WARNING: [Synth 8-6014] Unused sequential element operando_2_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:110]
+WARNING: [Synth 8-6014] Unused sequential element operacion_reg was removed.  [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:111]
 WARNING: [Synth 8-3848] Net resultado in module/entity Interface does not have driver. [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:41]
-WARNING: [Synth 8-3848] Net salida_op in module/entity Interface does not have driver. [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:92]
-WARNING: [Synth 8-7129] Port i_dina[31] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[30] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[29] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[28] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[27] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[26] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[25] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[24] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[23] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[22] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[21] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[20] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[19] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[18] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[17] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[16] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[15] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[14] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[13] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[12] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[11] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[10] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[9] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[8] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[7] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[6] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[5] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[4] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[3] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[2] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[1] in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_dina[0] in module ROM is either unconnected or has no load
+WARNING: [Synth 8-3848] Net salida_op in module/entity Interface does not have driver. [C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.srcs/sources_1/new/Interface.v:93]
 WARNING: [Synth 8-7129] Port i_clka in module ROM is either unconnected or has no load
 WARNING: [Synth 8-7129] Port i_wea in module ROM is either unconnected or has no load
-WARNING: [Synth 8-7129] Port i_ena in module ROM is either unconnected or has no load
 WARNING: [Synth 8-7129] Port i_rsta in module ROM is either unconnected or has no load
 WARNING: [Synth 8-7129] Port i_regcea in module ROM is either unconnected or has no load
 WARNING: [Synth 8-7129] Port i_reset in module Etapa_IF is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1416.660 ; gain = 551.668
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1589.324 ; gain = 723.594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1416.660 ; gain = 551.668
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1589.324 ; gain = 723.594
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1416.660 ; gain = 551.668
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1589.324 ; gain = 723.594
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1416.660 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1589.324 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -126,37 +105,29 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/Interface_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1442.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2027.988 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 El sistema no puede encontrar la ruta especificada.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1442.191 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.341 . Memory (MB): peak = 2027.988 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Constraint Validation : Time (s): cpu = 00:00:44 ; elapsed = 00:00:44 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:44 ; elapsed = 00:00:44 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1442.191 ; gain = 577.199
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Preparing Guide Design
----------------------------------------------------------------------------------
-WARNING: [Synth 8-6702] IncrSynth : Design change found in an area of the design that prevents previous synthesis information being used, Reverting to default synthesis
----------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1442.191 ; gain = 577.199
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'present_state_reg' in module 'RX'
 INFO: [Synth 8-802] inferred FSM for state register 'present_state_reg' in module 'TX'
@@ -214,18 +185,8 @@ INFO: [Synth 8-3898] No Re-encoding of one hot register 'display_select_reg' in 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'present_state_reg' using encoding 'sequential' in module 'Interface'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
-
-
-Incremental Synthesis Report Summary:
-
-1. Incremental synthesis run: no
-
-   Reason for not running incremental synthesis : Design change found in an area of the design that prevents previous synthesis information being used
-
-
-INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -235,7 +196,7 @@ Detailed RTL Component Info :
 	   2 Input   11 Bit       Adders := 3     
 	   2 Input    4 Bit       Adders := 3     
 +---Registers : 
-	               32 Bit    Registers := 1     
+	               32 Bit    Registers := 2049  
 	               16 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
@@ -245,11 +206,11 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 5     
 +---Muxes : 
 	   4 Input   32 Bit        Muxes := 2     
-	  11 Input   11 Bit        Muxes := 2     
 	   2 Input   11 Bit        Muxes := 3     
+	  11 Input   11 Bit        Muxes := 2     
 	   3 Input    8 Bit        Muxes := 1     
 	  11 Input    8 Bit        Muxes := 3     
-	   4 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
 	   5 Input    7 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 6     
@@ -278,39 +239,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1442.191 ; gain = 577.199
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-ROM: Preliminary Mapping Report
-+------------+------------+---------------+----------------+
-|Module Name | RTL Object | Depth x Width | Implemented As | 
-+------------+------------+---------------+----------------+
-|ROM         | BRAM       | 2048x1        | LUT            | 
-+------------+------------+---------------+----------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Technology Mapping : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -328,37 +275,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished IO Insertion : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -376,40 +323,40 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     2|
 |2     |CARRY4 |     4|
-|3     |LUT1   |    67|
-|4     |LUT2   |     3|
-|5     |LUT3   |    17|
-|6     |LUT4   |    17|
-|7     |LUT5   |     6|
-|8     |LUT6   |    20|
-|9     |FDRE   |    95|
+|3     |LUT1   |    57|
+|4     |LUT2   |     8|
+|5     |LUT3   |     7|
+|6     |LUT4   |    19|
+|7     |LUT5   |    11|
+|8     |LUT6   |    34|
+|9     |FDRE   |   108|
 |10    |FDSE   |     2|
 |11    |IBUF   |     3|
 |12    |OBUF   |    28|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:39 . Memory (MB): peak = 1442.191 ; gain = 551.668
-Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1442.191 ; gain = 577.199
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:00:59 . Memory (MB): peak = 2027.988 ; gain = 723.594
+Synthesis Optimization Complete : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 2027.988 ; gain = 1162.258
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1442.191 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2027.988 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1447.387 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2027.988 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 El sistema no puede encontrar la ruta especificada.
-Synth Design complete | Checksum: 85ff5d14
+Synth Design complete | Checksum: bf17b723
 INFO: [Common 17-83] Releasing license: Synthesis
-49 Infos, 53 Warnings, 0 Critical Warnings and 0 Errors encountered.
+51 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:48 . Memory (MB): peak = 1447.387 ; gain = 975.559
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1447.387 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 2027.988 ; gain = 1556.059
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2027.988 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/nemia/facu/repo/TP2_ARQUI/TP2_ARQUI.runs/synth_1/Interface.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Interface_utilization_synth.rpt -pb Interface_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar 27 20:04:43 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 27 21:44:55 2024...

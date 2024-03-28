@@ -210,14 +210,21 @@
                                 end
                                 else // Si no, se envia el siguiente byte
                                 begin
-                                    case(contadorTX)
-                                        0: dato_transmicion <= i_instruccion[15:8];
-                                        1: dato_transmicion <= i_instruccion[23:16];
-                                        2: dato_transmicion <= i_instruccion[31:24];
-                                    endcase
+                                    if(contadorTX == 0)
+                                    begin
+                                        dato_transmicion <= i_instruccion[ 15 : 8];
+                                    end
+                                    else if(contadorTX == 1)
+                                    begin
+                                        dato_transmicion <= i_instruccion[ 23 : 16];
+                                    end
+                                    else if(contadorTX == 2)
+                                    begin
+                                        dato_transmicion <= i_instruccion[ 31 : 24];
+                                    end
                                     next_state <= WAITING_STATE;
                                     contador_ticks <= 4'b0000;    
-                                end           
+                                end         
                             end
                     end
                 endcase

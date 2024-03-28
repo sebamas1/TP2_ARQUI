@@ -19,15 +19,17 @@ module ROM #(
   input i_ena,                            // RAM Enable, for additional power savings, disable port when not in use
   input i_rsta,                           // Output reset (does not affect memory contents)
   input i_regcea,                         // Output register enable
+  input i_increment_addr,
   output [RAM_WIDTH-1:0] o_douta,          // RAM output data
   output o_halt
 );
 
   reg [RAM_WIDTH-1:0] BRAM [RAM_DEPTH-1:0];
   reg [RAM_WIDTH-1:0] ram_data = {RAM_WIDTH{1'b0}};
-  
+  reg [RAM_WIDTH-1:0] addr_test = 1;
+
   assign o_halt = &BRAM[i_addra];
-  
+
   // The following code either initializes the memory values to a specified file or to all zeros to match hardware
   generate
     if (INIT_FILE != "") begin: use_init_file
@@ -41,13 +43,13 @@ module ROM #(
     end
   endgenerate
 
-  always @(i_addra)
+  always @(posedge i_increment_addr)
     if (i_ena)
     begin
      // if (i_wea)
-        BRAM[i_addra] <= i_dina;
+        BRAM[addr_test] <= i_dina;
     //  else
-        ram_data <= BRAM[i_addra];
+        ram_data <= BRAM[addr_test];
     end
 
   //  The following code generates HIGH_PERFORMANCE (use output register) or LOW_LATENCY (no output register)
@@ -55,7 +57,7 @@ module ROM #(
     if (RAM_PERFORMANCE == "LOW_LATENCY") begin: no_output_register
 
       // The following is a 1 clock cycle read latency at the cost of a longer clock-to-out timing
-       assign o_douta = ram_data;
+       assign o_douta = i_addra;
 
     end else begin: output_register //NO SE USA
 

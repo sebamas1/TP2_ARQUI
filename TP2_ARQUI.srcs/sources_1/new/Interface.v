@@ -63,7 +63,8 @@ module Interface
                         .i_branch_addr(0), //no se usa
                         .i_stall(0),
                         .i_instruccion(INSTRUCCION),
-                        .i_instruccion_addr(instruccion_addr)
+                        .i_instruccion_addr(instruccion_addr),
+                        .i_increment_addr(transmitir)
                 );
 
                 TX tramsmisor(

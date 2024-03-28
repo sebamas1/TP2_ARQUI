@@ -33,6 +33,7 @@ module Etapa_IF#(
         input                           i_stall,
         input  [TAM_DATA - 1 : 0]       i_instruccion,
         input  [PC_SIZE - 1 : 0]        i_instruccion_addr,
+        input                           i_increment_addr,
         output  [TAM_DATA - 1 : 0]      o_instruccion,
         output  [PC_SIZE - 1 : 0]       o_pc_value
 
@@ -49,6 +50,7 @@ ROM mem_inst(
     .i_ena(1'b1),
     .i_rsta(1'b0),                           // Output reset (does not affect memory contents)
     .i_regcea(1'b1),
+    .i_increment_addr(i_increment_addr),
     .o_douta(),
     .o_halt()
 );
